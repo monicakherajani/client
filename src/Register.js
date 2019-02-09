@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Sidemenu from './sidemenu';
+import axios from 'axios';
+import Constants from './Constants';
+
 class Register extends Component {
   state = {
     Name: '',
     Email_id: '',
+    Username: '',
     Password: '',
     ConfirmPassword: '',
     State: '',
@@ -19,19 +23,22 @@ class Register extends Component {
     this.setState({ Name: event.target.value });
   };
   onChangeEmail_id = event => {
-    this.setState({ Name: event.target.value });
+    this.setState({ Email: event.target.value });
+  };
+  onChangeUsername = event => {
+    this.setState({ Username: event.target.value });
   };
   onChangePassword = event => {
-    this.setState({ Name: event.target.value });
+    this.setState({ Password: event.target.value });
   };
   onChangeConfirmPassword = event => {
-    this.setState({ Name: event.target.value });
+    this.setState({ ConfirmPassword: event.target.value });
   };
   onChangeCity = event => {
-    this.setState({ Name: event.target.value });
+    this.setState({ City: event.target.value });
   };
   onChangeState = event => {
-    this.setState({ Name: event.target.value });
+    this.setState({ State: event.target.value });
   };
   onChangeAge = event => {
     this.setState({ Age: event.target.value });
@@ -45,6 +52,13 @@ class Register extends Component {
   };
   onChangeCollege = event => {
     this.setState({ College: event.target.value });
+  };
+
+  onRegister=()=>{
+    axios.post(Constants.BASE_URL+'student/addstudent',this.state)
+    .then(res=>{
+      console.log(res);
+    });
   };
 
   render() {
@@ -64,10 +78,11 @@ class Register extends Component {
                   />
                 </td>
               </tr>
+              
               <tr>
-                <td>Email</td>
+                <td>Username</td>
                 <td>
-                  <input onChange={this.onChangeEmail_id} />
+                  <input onChange={this.onChangeUsername} />
                 </td>
               </tr>
               <tr>
@@ -126,7 +141,7 @@ class Register extends Component {
               </tr>
               <tr>
                 <td colSpan='2'>
-                  <button className='btn btn-success'>Register</button>{' '}
+                  <button className='btn btn-success' onClick={this.onRegister}>Register</button>{' '}
                 </td>
               </tr>
             </tbody>

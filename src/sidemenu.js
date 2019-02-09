@@ -61,6 +61,7 @@ class Sidemenu extends Component {
 // </style>
 // </head>
 
+<React.Fragment>
 <div class="sidebar">
   <a class="active" href="#home">Home</a>
   <a href="#Courses">Courses</a>
@@ -74,8 +75,8 @@ class Sidemenu extends Component {
   <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
   <h3>Resize the browser window to see the effect.</h3>
 </div>
-
-
+</React.Fragment>
+    );
 
     //   <React.Fragment>
     //     <div className='container'>
