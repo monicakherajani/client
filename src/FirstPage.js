@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
+import StudentCourse from './StudentCourse';
 class FirstPage extends Component {
   static contextTypes = {
     router: PropTypes.object
@@ -28,6 +29,7 @@ class FirstPage extends Component {
      
       <div className='FirstPage-background'>
       <div className='container'>
+      <StudentCourse/>
         <button className='btn btn-success' onClick={this.onTutorLogin}>
           Tutor Login
         </button>
