@@ -37,19 +37,19 @@ class StudentLogin extends Component {
             <div className='row omb_row-sm-offset-3 omb_socialButtons'>
               <div className='col-xs-4 col-sm-2'>
                 <button className='btn btn-lg btn-block omb_btn-facebook' style={{color:'white'}}>
-                  <i className='fab fa-facebook visible-xs' />&nbsp;
+                  <i className='fab fa-facebook visible-xs' />&nbsp;<br/>>
                   <span className='hidden-xs'>Facebook</span>
                 </button>
               </div>
               <div className='col-xs-4 col-sm-2'>
                 <button className='btn btn-lg btn-block omb_btn-twitter' style={{color:'white'}}>
-                  <i className='fab fa-twitter visible-xs' />&nbsp;
+                  <i className='fab fa-twitter visible-xs' />&nbsp;<br/>
                   <span className='hidden-xs'>Twitter</span>
                 </button>
               </div>
               <div className='col-xs-4 col-sm-2'>
                 <button className='btn btn-lg btn-block omb_btn-google' style={{color:'white'}}>
-                  <i className='fab fa-google-plus visible-xs' />&nbsp;
+                  <i className='fab fa-google-plus visible-xs' />&nbsp;<br/>
                   <span className='hidden-xs'>Google+</span>
                 </button>
               </div>

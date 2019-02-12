@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
 import StudentCourse from './StudentCourse';
+
 class FirstPage extends Component {
   static contextTypes = {
     router: PropTypes.object
@@ -29,19 +30,22 @@ class FirstPage extends Component {
      
       <div className='FirstPage-background'>
       <div className='container'>
+      <br/>
       <StudentCourse/>
-        <button className='btn btn-success' onClick={this.onTutorLogin}>
+      
+      <br/>
+        <button className='btn btn-success fp-btn' onClick={this.onTutorLogin}>
           Tutor Login
         </button>
-        <br />
-        <button className='btn btn-success'onClick={this.onStudentLogin}>Student Login</button>
-        <br />
-        <button className='btn btn-success'onClick={this.onAdminLogin}>Admin Login</button>
-        <br />
-        <button className='btn btn-success' onClick={this.onStudentRegister}>
+        {/* <br /> */}
+        <button className='btn btn-success fp-btn'onClick={this.onStudentLogin}>Student Login</button>
+        {/* <br /> */}
+        <button className='btn btn-success fp-btn'onClick={this.onAdminLogin}>Admin Login</button>
+        {/* <br /> */}
+        <button className='btn btn-success fp-btn' onClick={this.onStudentRegister}>
           New Student Registration
         </button>
-        <br />
+        {/* <br /> */}
         </div>
       </div>
     );

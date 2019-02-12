@@ -9,12 +9,16 @@ import FirstPage from './FirstPage';
 import Register from './Register';
 import Course from './Course';
 import sidemenu from './sidemenu';
-import StudentRegister from './StudentRegister'
+import StudentRegister from './StudentRegister';
 // import loginScreen from './loginScreen'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import TutorLogin from './TutorLogin';
 import StudentCourse from './StudentCourse';
 import './studentlogin.css';
+import Sidemenu from './sidemenu';
+import Downloads from './Downloads';
+import Campus from './Campus';
+
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,18 +41,38 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <Sidemenu />
         <BrowserRouter>
           <Switch>
             <Route exact path='/' render={props => <FirstPage {...props} />} />
-            <Route path='/studentlogin' render={props => <StudentLogin {...props} />} />
+            <Route
+              path='/studentlogin'
+              render={props => <StudentLogin {...props} />}
+            />
+            
             {/* <Route path='/adminlogin' render={props => <Login {...props} />} /> */}
-            <Route path='/tutorlogin' render={props => <TutorLogin {...props} />} />
+            <Route
+              path='/tutorlogin'
+              render={props => <TutorLogin {...props} />}
+            />
             <Route path='/register' render={props => <Register {...props} />} />
-            <Route path='/course' render={props => <Course {...props} />} />
-            <Route path='/studentcourse' render={props => <StudentCourse {...props} />} />
-            <Route path='./StudentRegister.js' render={props => <StudentRegister {...props} />} />
-            <Route path='/sidemenu.js' render={props => <sidemenu {...props} />} />
+            <Route path='/downloads' render={props => <Downloads {...props} />} />
+            <Route path='/campus' render={props => <Campus {...props} />} />
 
+
+            <Route path='/course' render={props => <Course {...props} />} />
+            <Route
+              path='/studentcourse'
+              render={props => <StudentCourse {...props} />}
+            />
+            <Route
+              path='./StudentRegister.js'
+              render={props => <StudentRegister {...props} />}
+            />
+            <Route
+              path='/sidemenu.js'
+              render={props => <sidemenu {...props} />}
+            />
           </Switch>
         </BrowserRouter>
         {/* <div className='container'>
@@ -232,8 +256,7 @@ class App extends Component {
           <FirstPage />
           <Register />
           <Course />
-          <sidemenu/>
-          
+          <sidemenu />
         </div>
       </div>
     );

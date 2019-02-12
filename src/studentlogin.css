@@ -73,10 +73,23 @@
   border-radius: 10px;
   background-color: #fafafa;
   padding: 0px;
-  margin: 0px;
+  margin: 10px;
   box-sizing: border-box;
   display: inline-block;
   box-shadow: 5px 5px 10px rgba(100, 100, 100, 50);
+  text-align: center;
+}
+
+.card-container
+{
+  display: inline-flex;
+  margin: auto;
+}
+
+.card-row
+{
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .register-background
@@ -85,7 +98,8 @@
 	height: 100%;
 	margin:0;
 	padding: 0;
-	background-image: url('./books.jpg');
+  background-image: url('./books.jpg');
+  background-size: cover;
 }
 
 .Register {
@@ -105,6 +119,11 @@
   color: white;
 }
 
+.Register td
+{
+  text-align: right;
+}
+
 .register-background h1
 {
 	text-align: center;
@@ -119,5 +138,58 @@
 	margin:0;
 	padding: 0;
 	background-image: url('./books.jpg');
-	
+	background-size: cover;
+}
+
+#brand
+{
+  float:left;
+  font-size: 28px;
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar
+{
+  display: block;
+  float:right;  
+}
+
+.sidebar a
+{
+  display: inline-block;
+  background: #333333aa;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  transition: 1s ease;
+}
+
+.sidebar a:hover
+{
+  text-decoration: none;
+  color: yellow;
+  transform: scale(1.1);
+  transition: 1s ease;
+}
+
+.topmenu
+{
+  background-color: #333333cc;
+  text-align: right;
+  padding: 5px;
+  height: 55px;
+}
+
+html, body, #root
+{
+  height: 100%;
+}
+
+.fp-btn
+{
+  padding: 10px;
+  margin: 10px 50px;
 }

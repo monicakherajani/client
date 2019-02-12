@@ -43,13 +43,17 @@ class Register extends Component {
   onChangeAge = event => {
     this.setState({ Age: event.target.value });
   };
-
+  onChangeBranch = event => {
+    this.setState({ Address: event.target.value });
+  };
+ 
   onChangeQualification = event => {
     this.setState({ Qualification: event.target.value });
   };
   onChangeAddress = event => {
     this.setState({ Address: event.target.value });
   };
+
   onChangeCollege = event => {
     this.setState({ College: event.target.value });
   };
@@ -66,7 +70,6 @@ class Register extends Component {
       <div class='register-background'>
       <h1>Register</h1>
         <div className='Register'>
-          <Sidemenu />
           <table className='table'>
             <tbody>
               <tr>
@@ -82,25 +85,25 @@ class Register extends Component {
               <tr>
                 <td>Username</td>
                 <td>
-                  <input onChange={this.onChangeUsername} />
+                  <input onChange={this.onChangeUsername} className='form-control'/>
                 </td>
               </tr>
               <tr>
                 <td>Password</td>
                 <td>
-                  <input onChange={this.onChangePassword} />
+                  <input type="Password" onChange={this.onChangePassword} className='form-control'/>
                 </td>
               </tr>
               <tr>
                 <td>Confirm Password</td>
                 <td>
-                  <input onChange={this.onChangeConfirmPassword} />
+                  <input type="Password" onChange={this.onChangeConfirmPassword} className='form-control'/>
                 </td>
               </tr>
               <tr>
                 <td>Age</td>
                 <td>
-                  <input type='Age' onChange={this.onChangeAge} />
+                  <input type='Age' onChange={this.onChangeAge} className='form-control'/>
                 </td>
               </tr>
               <tr />
@@ -110,33 +113,40 @@ class Register extends Component {
                   <input
                     type='Qualification'
                     onChange={this.onChangeQualification}
-                  />
+                    className='form-control'
+                                      />
                 </td>
               </tr>
               <tr />
               <tr>
                 <td>Address</td>
                 <td>
-                  <input type='Address' onChange={this.onChangeAddress} />
+                  <input type='Address' onChange={this.onChangeAddress} className='form-control'/>
                 </td>
               </tr>
               <tr>
                 <td>City</td>
                 <td>
-                  <input onChange={this.onChangeCity} />
+                  <input onChange={this.onChangeCity} className='form-control'/>
                 </td>
               </tr>
               <tr>
                 <td>State</td>
                 <td>
-                  <input onChange={this.onChangeState} />
+                  <input onChange={this.onChangeState} className='form-control'/>
                 </td>
               </tr>
               <tr />
               <tr>
+                <td>Branch</td>
+                <td>
+                  <input type='College' onChange={this.onChangeCollege} className='form-control'/>
+                </td>
+              </tr>
+              <tr>
                 <td>College</td>
                 <td>
-                  <input type='College' onChange={this.onChangeCollege} />
+                  <input type='College' onChange={this.onChangeCollege} className='form-control'/>
                 </td>
               </tr>
               <tr>
@@ -146,7 +156,7 @@ class Register extends Component {
               </tr>
             </tbody>
           </table>
-        </div>
+        </div>        
       </div> //no need to write from table tag
     );
   }
