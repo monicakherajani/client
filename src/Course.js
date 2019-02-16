@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Sidemenu from './sidemenu';
 class Course extends Component {
     state = {
 CourseName:'',
@@ -20,6 +21,8 @@ Subtopics:''
 
     
         return(
+          <React.Fragment>
+            <Sidemenu/>
             <div>
         <table>
           <tr>
@@ -47,6 +50,7 @@ Subtopics:''
           </tr>
         </table>
         </div>
+        </React.Fragment>
         )
     }
     

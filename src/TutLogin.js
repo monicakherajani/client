@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 import campus_placement from './campus-placement.png';
 import Competitive from './Competitive.png';
+import TutSidemenu from './TutSidemenu';
 
-class Downloads extends Component {
+class TutLogin extends Component {
   render() {
     return (
+               
       <React.Fragment>
+        <TutSidemenu/>
         <div className="card-row">
         <div className='card-container'>
           <div className='course-card' style={{ width: '18rem' }}>
@@ -14,10 +17,10 @@ class Downloads extends Component {
             <div className='card-body'>
               <h5 className='card-title'>Campus Preparation</h5>
               <p className='card-text'>
-                Download all the resources to crack Campus Placement.
+                Upload contents for Campus Preparation.
               </p>
               <a href='./Campus' className='btn btn-success'>
-                Explore now
+                Upload.
               </a>
             </div>
           </div>
@@ -27,10 +30,11 @@ class Downloads extends Component {
             <div className='card-body'>
               <h5 className='card-title'>Competitive Exams</h5>
               <p className='card-text'>
-              Download all the resources to crack Campus Placement.
+              Upload contents for Competitive Exams.
+
               </p>
               <a href='./Competitve' className='btn btn-success'>
-                Explore now
+                 Upload.
               </a>
             </div>
           </div>
@@ -40,4 +44,4 @@ class Downloads extends Component {
     );
   }
 }
-export default Downloads;
+export default TutLogin ;

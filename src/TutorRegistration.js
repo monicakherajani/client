@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Sidemenu from './sidemenu';
+import TutSidemenu from './TutSidemenu';
 import axios from 'axios';
 import Constants from './Constants';
-
 
 class Register extends Component {
   state = {
@@ -18,7 +17,8 @@ class Register extends Component {
     Qualification: '',
     Address: '',
     College: '',
-    Branch: ''
+    Specialization:'',
+    Expirence: ''
   };
   onChangeName = event => {
     this.setState({ Name: event.target.value });
@@ -44,8 +44,11 @@ class Register extends Component {
   onChangeAge = event => {
     this.setState({ Age: event.target.value });
   };
-  onChangeBranch = event => {
-    this.setState({ Address: event.target.value });
+  onChangeExpirence = event => {
+    this.setState({ Expirence: event.target.value });
+  };
+  onChangeSpecialization = event => {
+    this.setState({ Specialization: event.target.value });
   };
 
   onChangeQualification = event => {
@@ -70,7 +73,7 @@ class Register extends Component {
   render() {
     return (
       <React.Fragment>
-      <Sidemenu/>
+        <TutSidemenu/>
       <div class='register-background'>
         <h1>Register</h1>
         <div className='Register'>
@@ -163,7 +166,7 @@ class Register extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Qualification</td>
+                <td> Highest Qualification</td>
                 <td>
                   <input
                     type='Qualification'
@@ -201,11 +204,21 @@ class Register extends Component {
                 </td>
               </tr>
               <tr>
-                <td>Branch</td>
+                <td>Years of Expirence in Teaching</td>
                 <td>
                   <input
-                    type='College'
-                    onChange={this.onChangeCollege}
+                    type='Expirence'
+                    onChange={this.onChangeExpirence}
+                    className='form-control'
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Specialization</td>
+                <td>
+                  <input
+                    type='Specialization'
+                    onChange={this.onChangeSpecialization}
                     className='form-control'
                   />
                 </td>
@@ -230,8 +243,8 @@ class Register extends Component {
             </tbody>
           </table>
         </div>
-      </div>
-       </React.Fragment>
+      </div> 
+      </React.Fragment>
     );
   }
 }

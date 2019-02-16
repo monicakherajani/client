@@ -1,10 +1,12 @@
 import './studentlogin.css';
 
+
 import React, { Component } from 'react';
 class StudentCourse extends Component {
   render() {
     return (
       <React.Fragment>
+        
         <div className='container'>
           <div className='row'>
             <div className='col-4'>
@@ -14,7 +16,9 @@ class StudentCourse extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Aptitude.Join now!
                   </p>
-                  <button className='btn btn-success'>Explore Course</button>
+                  <a href='./Campus' className='btn btn-success'>
+                Explore now
+              </a>
                 </div>
               </div>
             </div>

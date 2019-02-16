@@ -1,42 +1,43 @@
 import './studentlogin.css';
 
 import React, { Component } from 'react';
-import Sidemenu from './sidemenu';
-class Competitive extends Component {
+class Exams extends Component {
   render() {
     return (
       <React.Fragment>
-        <Sidemenu/>
         <div className='container'>
           <div className='row'>
             <div className='col-4'>
               <div className='course-card'>
                 <div className='card-body'>
-                  <h5 className='card-title'>MPSC</h5>
-                  <p className='card-text'>
-                    Complete preparation to crack MPSC.Join now!
-                  </p>
-                  <button className='btn btn-success'>Explore Course</button>
-                </div>
-              </div>
-            </div>
-            <div className='col-4'>
-              <div className='course-card' style={{ display: 'inline-block' }}>
-                <div className='card-body'>
-                  <h5 className='card-title'>MPSC</h5>
-                  <p className='card-text'>
-                    Complete preparation to crack MPSC.Join now!
-                  </p>
-                  <button className='btn btn-success'>Explore Course</button>
-                </div>
-              </div>
-            </div>
-            <div className='col-4'>
-              <div className='course-card' style={{ display: 'inline-block' }}>
-                <div className='card-body'>
                   <h5 className='card-title'>Gate</h5>
                   <p className='card-text'>
                     Complete preparation to crack Gate.Join now!
+                  </p>
+                  <a href='./Campus' className='btn btn-success'>
+                Explore now
+              </a>
+                </div>
+              </div>
+            </div>
+            <div className='col-4'>
+              <div className='course-card' style={{ display: 'inline-block' }}>
+                <div className='card-body'>
+                  <h5 className='card-title'>GRE</h5>
+                  <p className='card-text'>
+                    Complete preparation to crack GRE.Join now!
+                  </p>
+                  <button className='btn btn-success'>Explore Course</button>
+                </div>
+              </div>
+            </div>
+            <div className='col-4'>
+              <div className='course-card' style={{ display: 'inline-block' }}>
+                <div className='card-body'>
+                  <h5 className='card-title'>MPSC State Service Main Examamination.</h5>
+                  <p className='card-text'>
+                    Complete preparation to crack MPSC State Service Main Examamination.
+                    Join now!
                   </p>
                   <button className='btn btn-success'>Explore Course</button>
                 </div>
@@ -80,4 +81,4 @@ class Competitive extends Component {
     );
   }
 }
-export default Competitive;
+export default Exams;
