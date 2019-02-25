@@ -15,9 +15,9 @@ class TutSidemenu extends Component {
             <a href='#Resources'>Total Views</a>
             <a href='#profile'>Profile</a>
             <a href='./Fllowers'>Followers</a>
-            <a href='#contact'>Create Video</a>
-            <a href='./Test'>Create Test</a>
-            <a href='#contact'>Video List</a>
+            <a href='./AddVideo'>Add Video</a>
+            <a href='./TestList'>Create Test</a>
+            <a href='./VideoList'>Video List</a>
             
           </div>
         </div>

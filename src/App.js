@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 // injectTapEventPlugin();
 import './App.css';
+import TestList from './TestList';
 import StudentLogin from './StudentLogin';
 import FirstPage from './FirstPage';
 import Register from './Register';
@@ -20,9 +22,10 @@ import Sidebar2 from './Sidebar2';
 import './studentlogin.css';
 import Test from './Test';
 import Questions from './Questions';
-
+import VideoList from './VideoList';
 import Downloads from './Downloads';
 import Campus from './Campus';
+import AddVideo from './AddVideo';
 
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -72,6 +75,11 @@ class App extends Component {
               <Route path='/Sidebar2' render={props => <Sidebar2 {...props} />} />
               <Route path='/Test' render={props => <Test {...props} />} />
               <Route path='/Questions' render={props => <Questions {...props} />} />
+              <Route path='/TestList' render={props => <TestList {...props} />} />
+              <Route path='/VideoList' render={props => <VideoList {...props} />} />
+              <Route path='/AddVideo' render={props => <AddVideo {...props} />} />
+
+
 
 
             <Route

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
-
+import SocialButton from './SocialButton';
 
 class StudentLogin extends Component {
   state = {
@@ -8,6 +8,19 @@ class StudentLogin extends Component {
     password: '',
     message: '',
     s: 'none'
+  };
+
+  handleSocialLogin = user => {
+    console.log(user);
+    let firstname=user._profile.firstName;
+    let lastname=user._profile.lastName;
+    let facebookid=user._profile.id;
+    let email=user._profile.email;
+    
+  };
+
+  handleSocialLoginFailure = err => {
+    console.error(err);
   };
 
   onChangeUsername = event => {
@@ -32,25 +45,45 @@ class StudentLogin extends Component {
         <div className='container'>
           <div className='omb_login'>
             <h3 className='omb_authTitle'>
-              Login or <button className="btn btn-primary">Sign up</button>
+              Login or <button className='btn btn-primary'>Sign up</button>
             </h3>
             <div className='row omb_row-sm-offset-3 omb_socialButtons'>
               <div className='col-xs-4 col-sm-2'>
-                <button className='btn btn-lg btn-block omb_btn-facebook' style={{color:'white'}}>
-                  <i className='fab fa-facebook visible-xs' />&nbsp;<br/>
+                <SocialButton
+                  className='btn btn-lg btn-block omb_btn-facebook'
+                  style={{ color: 'white' }}
+                  provider='facebook'
+                  appId='396218067847855'
+                  onLoginSuccess={this.handleSocialLogin}
+                  onLoginFailure={this.handleSocialLoginFailure}
+                             >
+                  <i className='fab fa-facebook visible-xs' />
+                  &nbsp;
+                  <br />
                   <span className='hidden-xs'>Facebook</span>
-                </button>
+                </SocialButton>
               </div>
               <div className='col-xs-4 col-sm-2'>
-                <button className='btn btn-lg btn-block omb_btn-twitter' style={{color:'white'}}>
-                  <i className='fab fa-twitter visible-xs' />&nbsp;<br/>
+                <button
+                  className='btn btn-lg btn-block omb_btn-twitter'
+                  style={{ color: 'white' }}
+                >
+                
+                  <i className='fab fa-twitter visible-xs' />
+                  &nbsp;
+                  <br />
                   <span className='hidden-xs'>Twitter</span>
                 </button>
               </div>
               <div className='col-xs-4 col-sm-2'>
-                <button className='btn btn-lg btn-block omb_btn-google' style={{color:'white'}}>
-                  <i className='fab fa-google-plus visible-xs' />&nbsp;<br/>
-                  <span className='hidden-xs'>Google+</span>
+                <button
+                  className='btn btn-lg btn-block omb_btn-google'
+                  style={{ color: 'white' }}
+                >
+                  <i className='fab fa-google-plus visible-xs' />
+                  &nbsp;
+                  <br />
+                  <span className='hidden-xs'>Google</span>
                 </button>
               </div>
             </div>
@@ -114,13 +147,17 @@ class StudentLogin extends Component {
             <div className='row omb_row-sm-offset-3'>
               <div className='col-xs-12 col-sm-3'>
                 <label className='checkbox'>
-                  <input type='checkbox' value='remember-me' className='form-control-md' />
+                  <input
+                    type='checkbox'
+                    value='remember-me'
+                    className='form-control-md'
+                  />
                   Remember Me
                 </label>
               </div>
               <div className='col-xs-12 col-sm-3'>
                 <p className='omb_forgotPwd'>
-                  <button style={{border: 0}}>Forgot password?</button>
+                  <button style={{ border: 0 }}>Forgot password?</button>
                 </p>
               </div>
             </div>
@@ -194,6 +231,15 @@ class StudentLogin extends Component {
         <Footer></Footer>
        
       </div> */}
+
+        {/* <SocialButton
+          provider='facebook'
+          appId='396218067847855'
+          onLoginSuccess={this.handleSocialLogin}
+          onLoginFailure={this.handleSocialLoginFailure}
+        >
+          Login with Facebook
+        </SocialButton> */}
       </React.Fragment>
     );
   }
