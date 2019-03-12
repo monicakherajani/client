@@ -1,12 +1,14 @@
 import './studentlogin.css';
-
+import Sidebar1 from './Sidebar1';
 import React, { Component } from 'react';
 import Sidemenu from './sidemenu';
 class Competitive extends Component {
   render() {
     return (
       <React.Fragment>
+        
         <Sidemenu/>
+        <Sidebar1/>
         <div className='container'>
           <div className='row'>
             <div className='col-4'>
@@ -16,7 +18,7 @@ class Competitive extends Component {
                   <p className='card-text'>
                     Complete preparation to crack MPSC.Join now!
                   </p>
-                  <button className='btn btn-success'>Explore Course</button>
+                  <button className='btn btn-success'>View Course</button>
                 </div>
               </div>
             </div>
@@ -27,7 +29,7 @@ class Competitive extends Component {
                   <p className='card-text'>
                     Complete preparation to crack MPSC.Join now!
                   </p>
-                  <button className='btn btn-success'>Explore Course</button>
+                  <button className='btn btn-success'>View Course</button>
                 </div>
               </div>
             </div>
@@ -38,7 +40,7 @@ class Competitive extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Gate.Join now!
                   </p>
-                  <button className='btn btn-success'>Explore Course</button>
+                  <button className='btn btn-success'>View Course</button>
                 </div>
               </div>
             </div>

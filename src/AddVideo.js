@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import TutSidemenu from './TutSidemenu';
 import Axios from 'axios';
 import Constants from './Constants';
+import TutSidebar from './TutSidebar';
 
 class AddVideo extends Component {
   state = {
@@ -69,61 +70,92 @@ class AddVideo extends Component {
     return (
       <React.Fragment>
         <TutSidemenu />
+        <TutSidebar/>
+        <table className="table container">
+        
         <h1>Add Video</h1>
-        <div className='form-container' style={{ width: '40%' }}>
-          <label>Video Name</label>
-          <input
+        <div className='form-container' style={{ width: '60%' }}>
+
+        
+          <tr>
+            <td>          <label>Video Name</label></td>
+            <td>          <input
             type='text'
             onChange={this.onChangeVName}
             className='form-control'
-          />
-          <label>Description</label>
-          <input
+          /></td>
+          </tr>
+          <tr>
+            <td><label>Description</label></td>
+            <td> <input
             type='text'
             onChange={this.onChangeVDescription}
             className='form-control'
           />
-          <label>Embed url</label>
-          <input
+         </td>
+          </tr>
+          <tr>
+            <td> <label>Embed url</label></td>
+            <td> <input
             type='text'
             onChange={this.onChangeurl}
             className='form-control'
-          />
-        </div>
-
-        <label>Tags</label>
-        <input
+          /></td>
+          </tr>
+          <tr>
+            <td><label>Tags</label></td>
+            <td><input
           type='text'
           onChange={this.onChangeTags}
           onBlur={this.onAddTag}
           className='form-control'
         />
-        {this.state.TagArray.length === 0 ? (
-          <span>No Tags selected</span>
-        ) : (
-          this.state.TagArray.map(t => {
-            return (
-              <>
-                <button
-                  style={{ minWidth: '30%', marginBottom: '2px' }}
-                  onClick={() => {
-                    this.removeTag(t);
-                  }}
-                  className='btn btn-primary'
-                >
-                  {t}&nbsp;&nbsp;&nbsp;
-                  <i className='fas fa-trash' />
-                </button>
-                <br />
-              </>
-            );
-          })
-        )}
+</td>
+          </tr>
+          {this.state.TagArray.length === 0 ? (
+            <span>No Tags selected</span>
+          ) : (
+            this.state.TagArray.map(t => {
+              return (
+                <>
+                  <button
+                    style={{ minWidth: '30%', marginBottom: '2px' }}
+                    onClick={() => {
+                      this.removeTag(t);
+                    }}
+                    className='btn btn-primary'
+                  >
+                    {t}&nbsp;&nbsp;&nbsp;
+                    <i className='fas fa-trash' />
+                  </button>
+                  <br />
+                  </>
+              );
+            })
+          )}
+         
 
-        <button className='btn btn-success' onClick={this.onAdd}>
+       
+                   
+         
+        
+
+        
+                
+                
+               
+            
+
+        <button 
+        className='btn btn-success' onClick={this.onAdd}>
           Add Video
         </button>
-      </React.Fragment>
+        </div>
+        </table>
+                
+                <br />
+                
+              </React.Fragment>
     );
   }
 }

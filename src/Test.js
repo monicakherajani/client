@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Questions from './Questions';
 import TutSidemenu from './TutSidemenu';
+import TutSidebar from './TutSidebar';
 class Test extends Component {
   state = {
     Name: '',
@@ -60,40 +61,55 @@ class Test extends Component {
   render() {
     return (
       <React.Fragment>
+        
         <TutSidemenu />
+        <TutSidebar/>
+         
+
+        <table className="table container">
         <h1>Create New Test</h1>
-        <div className='form-container' style={{ width: '40%' }}>
-          <label>Test Name</label>
-          <input
+        <div className='form-container' style={{ width: '60%' }}>
+        <tr>
+         <td> <label>Test Name</label></td>
+         <td> <input
             type='text'
             onChange={this.onChangeName}
             className='form-control'
-          />
-          <label>Test Description</label>
-          <input
+          /></td>
+          </tr>
+          <tr>
+         <td> <label>Test Description</label></td>
+         <td> <input
             type='text'
             onChange={this.onChangeDescription}
             className='form-control'
-          />
-          <label>Number of questions</label>
-          <input
+          /></td>
+          </tr>
+          <tr>
+          <td><label>Number of questions</label></td>
+          <td> <input
             type='text'
             onChange={this.onChangeNo_questions}
             className='form-control'
-          />
-          <label>Test duration</label>
-          <input
+          /></td>
+          </tr>
+          <tr>
+          <td><label>Test duration</label></td>
+          <td> <input
             type='text'
             onChange={this.onChangeDuration}
             className='form-control'
-          />
-          <label>Tags</label>
-          <input
+          /></td>
+          </tr>
+          <tr>
+         <td> <label>Tags</label></td>
+         <td> <input
             type='text'
             onChange={this.onChangeTags}
             onBlur={this.onAddTag}
             className='form-control'
-          />
+          /></td>
+          </tr>
           {this.state.TagArray.length === 0 ? (
             <span>No Tags selected</span>
           ) : (
@@ -116,9 +132,10 @@ class Test extends Component {
             })
           )}
         </div>
-        <a href='./Questions' className='btn btn-success'>
+        <a href='./Questions' style={{maginLeft:'1020px'}} className='btn btn-success'>
           Add Questions
         </a>
+        </table>
       </React.Fragment>
     );
   }

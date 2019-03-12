@@ -8,8 +8,16 @@ return (
     
     <div id="list-example" className="list-group">
   <a className="list-group-item list-group-item-action" href="/">Home</a>
-  <a className="list-group-item list-group-item-action" href="./StudentCourse">Courses</a>
+  <a className="list-group-item list-group-item-action" href="./Downloads">Courses</a>
   <a className="list-group-item list-group-item-action" href="./VideoList">Videos</a>
+  <a className="list-group-item list-group-item-action" href="./">Resources</a>
+  <a className="list-group-item list-group-item-action" href="./Downloads">Downloads</a>
+  <a className="list-group-item list-group-item-action" href="./Register">Register</a>
+  <a className="list-group-item list-group-item-action" href="./">Contact</a>
+  <a className="list-group-item list-group-item-action" href="./VideoList">About us</a>
+
+
+
   <a className="list-group-item list-group-item-action" href="./Exams">Exams</a>
 </div>
  );

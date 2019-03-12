@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import campus_placement from './campus-placement.png';
 import Competitive from './Competitive.png';
 import TutSidemenu from './TutSidemenu';
+import TutSidebar from './TutSidebar';
 
 
 class TutLogin extends Component {
@@ -10,8 +11,20 @@ class TutLogin extends Component {
     return (
                
       <React.Fragment>
+        
         <TutSidemenu/>
-        <div className="card-row">
+        <TutSidebar/>
+        <div className="dropdown">
+  <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Add Activity/Resources
+  </button>
+  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a className="dropdown-item" href="#">URL</a>
+    <a className="dropdown-item" href="#">File</a>
+    <a className="dropdown-item" href="#">Folder</a>
+  </div>
+</div>
+        <div className="card-row" style={{marginLeft:'250px'}}>
         <div className='card-container'>
           <div className='course-card' style={{ width: '18rem' }}>
             <img src={campus_placement} className='card-img-top' alt='...' />
@@ -41,6 +54,11 @@ class TutLogin extends Component {
           </div>
         </div>
         </div>
+       
+
+   
+  
+
       </React.Fragment>
     );
   }

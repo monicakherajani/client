@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TutSidemenu from './TutSidemenu';
 import axios from 'axios';
 import Constants from './Constants';
+import TutSidebar from './TutSidebar';
 
 class Questions extends Component {
   state = {
@@ -148,94 +149,107 @@ class Questions extends Component {
     return (
       <React.Fragment>
         <TutSidemenu />
-        <div className='container' style={{ width: '40%' }}>
+        <TutSidebar/>
+        <table className="table container">
+        
         <h1>Add Questions</h1>
-          <label>Question Type</label>
-          <input
+        <div className='form-container' style={{ width: '60%' }}>
+        <tr>
+         <td> <label>Question Type</label></td>
+         <td> <input
             type='text'
             onChange={this.onChangeQtype}
             className='form-control'
-          />
-          <label>Enter Question</label>
-          <input
+          /></td>
+          </tr>
+          <tr>
+          <td><label>Enter Question</label></td>
+          <td> <input
             type='text'
             onChange={this.onChangeName}
             className='form-control'
-          />
-          Image{' '}
+          /></td>
+         Image{' '}
           <input
             type='file'
             onChange={this.onChangeQuestionImage}
             name='option1image'
           />
-          <hr />
-          <label>Option 1</label>
-          <input
+          </tr>
+          <tr>
+         <td> <label>Option 1</label></td>
+         <td>  <input
             type='text'
             onChange={this.onChangeOption1}
             className='form-control'
-          />
+          /></td>
+          
           Image{' '}
           <input
             type='file'
             onChange={this.onChangeOption1Image}
             name='option1image'
           />
-          <hr />
-          <label>Option 2</label>
-          <input
+          </tr>
+          <tr>
+        <td>  <label>Option 2</label></td>
+        <td><input
             type='text'
             onChange={this.onChangeOption2}
             className='form-control'
-          />
+          /></td>
           Image{' '}
           <input
             type='file'
             onChange={this.onChangeOption2Image}
             name='option1image'
-          />
-          <hr />
-          <label>Option 3</label>
-          <input
+          /></tr>
+          <tr>
+          <td><label>Option 3</label></td>
+          <td> <input
             type='text'
             onChange={this.onChangeOption3}
             className='form-control'
-          />
+          /></td>
           Image{' '}
           <input
             type='file'
             onChange={this.onChangeOption3Image}
             name='option1image'
           />
-          <hr />
-          <label>Option 4</label>
-          <input
+          </tr>
+          <tr>
+          <td><label>Option 4</label></td>
+          <td><input
             type='text'
             onChange={this.onChangeOption4}
             className='form-control'
-          />
+          /></td>
           Image{' '}
           <input
             type='file'
             onChange={this.onChangeOption4Image}
             name='option1image'
           />
-          <hr />
-          <label>Correct Answer</label>
-          <input
+          </tr>
+          {/* <hr /> */}
+          <tr>
+          <td>  <label>Correct Answer</label></td>
+          <td> <input
             type='text'
             onChange={this.onChangeCorrectAns}
             className='form-control'
-          />
-          <hr />
-          
-           <label>Tags</label>
-          <input
+          /></td>
+          </tr>
+          <tr>
+          <td> <label>Tags</label></td>
+          <td> <input
             type='text'
             onChange={this.onChangeTags}
             onBlur={this.onAddTag}
             className='form-control'
-          />
+          /></td>
+          </tr>
           {this.state.TagArray.length === 0 ? (
             <span>No Tags selected</span>
           ) : (
@@ -253,12 +267,13 @@ class Questions extends Component {
                     <i className='fas fa-trash' />
                   </button>
                   <br />
+                  
                   </>
               );
             })
           )}
          
-        </div>
+        
         <button className='btn btn-success' onClick={this.onSubmitQuestion}>
           Submit Question
         </button>
@@ -266,6 +281,8 @@ class Questions extends Component {
         <a href='./Questions' className='btn btn-success'>
           Add next Question
         </a>
+        </div>
+        </table>
       </React.Fragment>
     );
   }

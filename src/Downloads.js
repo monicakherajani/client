@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 
 import campus_placement from './campus-placement.png';
 import Competitive from './Competitive.png';
+import Sidemenu from './sidemenu';
+import Sidebar1 from './Sidebar1';
 
 class Downloads extends Component {
   render() {
     return (
       <React.Fragment>
+        
+        <Sidemenu/>
+        <Sidebar1/>
+        <div className='container'>
+          <div className='row'>
+       
         <div className="card-row">
         <div className='card-container'>
           <div className='course-card' style={{ width: '18rem' }}>
@@ -36,6 +44,11 @@ class Downloads extends Component {
           </div>
         </div>
         </div>
+        </div>
+        
+        </div>
+        
+    
       </React.Fragment>
     );
   }

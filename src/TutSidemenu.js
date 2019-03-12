@@ -8,16 +8,11 @@ class TutSidemenu extends Component {
         <div className='topmenu'>
           <div id='brand'>Learning Platform</div>
           <div className='sidebar'>
-            <a className='active' href='/'>
-              Home
-            </a>
-            <a href='./StudentCourse'>Courses</a>
-            <a href='#Resources'>Total Views</a>
-            <a href='#profile'>Profile</a>
-            <a href='./Fllowers'>Followers</a>
-            <a href='./AddVideo'>Add Video</a>
-            <a href='./TestList'>Create Test</a>
-            <a href='./VideoList'>Video List</a>
+            
+            <a href='./Test'>Quiz Management</a>
+            <a href='./StudentManagement'>Student Management</a>
+            <a href='./BatchManagement'>Batch Management</a>
+            <a href=''>Logout</a>
             
           </div>
         </div>

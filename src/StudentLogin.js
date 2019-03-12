@@ -232,14 +232,14 @@ class StudentLogin extends Component {
        
       </div> */}
 
-        {/* <SocialButton
+        <SocialButton
           provider='facebook'
           appId='396218067847855'
           onLoginSuccess={this.handleSocialLogin}
           onLoginFailure={this.handleSocialLoginFailure}
         >
           Login with Facebook
-        </SocialButton> */}
+        </SocialButton>
       </React.Fragment>
     );
   }

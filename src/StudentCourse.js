@@ -2,12 +2,40 @@ import './studentlogin.css';
 
 
 import React, { Component } from 'react';
+import Sidebar1 from './Sidebar1';
+import Sidemenu from './sidemenu';
 class StudentCourse extends Component {
   render() {
     return (
       <React.Fragment>
         
-        <div className='container'>
+        
+        
+        <div className='topmenu'>
+          <div id='brand'>Learning Platform</div>
+          <div className='sidebar'>
+          <a href='./StudentLogin'>Student Login</a>
+            <a href='./StudentLogin'>Tutor Login</a>
+          </div>
+          </div>
+          <div id="list-example" className="list-group">
+  <a className="list-group-item list-group-item-action" href="/">Home</a>
+  <a className="list-group-item list-group-item-action" href="./StudentCourse">Courses</a>
+  <a className="list-group-item list-group-item-action" href="./VideoList">Videos</a>
+  <a className="list-group-item list-group-item-action" href="./">Resources</a>
+  <a className="list-group-item list-group-item-action" href="./Downloads">Downloads</a>
+  <a className="list-group-item list-group-item-action" href="./Register">Register</a>
+  <a className="list-group-item list-group-item-action" href="./">Contact</a>
+  <a className="list-group-item list-group-item-action" href="./VideoList">About us</a>
+
+
+
+  <a className="list-group-item list-group-item-action" href="./Exams">Exams</a>
+</div>
+
+
+          <div className='container'>
+        <h1 style={{textAlign:'center', color:'green',fontSize:'100px', padding:'20px'}}>Courses</h1>
           <div className='row'>
             <div className='col-4'>
               <div className='course-card'>

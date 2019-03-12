@@ -62,21 +62,26 @@ class Sidemenu extends Component {
       // </head>
 
       <React.Fragment>
+         
+       
         <div className='topmenu'>
           <div id='brand'>Learning Platform</div>
           <div className='sidebar'>
-            <a className='active' href='/'>
+                      {/* <a className='active' href='/'>
               Home
             </a>
             <a href='./StudentCourse'>Courses</a>
-            <a href='#Resources'>Resources</a>
+            <a href='./StudentCourse'>Resources</a>
             <a href='./Downloads'>Downloads</a>
             <a href='./Register'>Register</a>
 
             <a href='#contact'>Contact</a>
-            <a href='#about'>About</a>
+            <a href='#about'>About</a> */}
+            <a href='./StudentLogin'>Student Login</a>
+            <a href='./StudentLogin'>Tutor Login</a>
           </div>
-        </div>
+          </div>
+                 
       </React.Fragment>
     );
 

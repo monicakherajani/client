@@ -2,23 +2,34 @@ import React, { Component } from 'react';
 // import frame from 'react-frame-component';
 import Axios from 'axios';
 import Constants from './Constants';
+import Session from './Session';
 
 class VideoList extends Component {
   state = {
     videos: []
   };
 
-  constructor() {
+  init=false;
+
+  session=Session.getInstance();
+
+  constructor() {    
     super();
-    console.log(this.props);
-    Axios.get(Constants.BASE_URL + 'video/getvideolist?tags=swing').then(
-      res => {
-        this.setState({ videos: res.data });
-      }
-    );
   }
 
   render() {
+
+    if(!this.init)
+    {
+      console.log("this",this.props.tags);
+      Axios.get(Constants.BASE_URL + `video/getvideolist?tags=${this.props.tags}`).then(
+        res => {
+          this.setState({ videos: res.data });
+        }
+      );
+        this.init=true;
+    }
+
     console.log(this.state.videos);
     this.state.videos.map(v => {
       return console.log(v.url);

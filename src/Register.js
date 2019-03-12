@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Sidemenu from './sidemenu';
 import axios from 'axios';
 import Constants from './Constants';
+import Sidebar1 from './Sidebar1';
 
 
 class Register extends Component {
@@ -71,6 +72,7 @@ class Register extends Component {
     return (
       <React.Fragment>
       <Sidemenu/>
+      <Sidebar1/>
       <div class='register-background'>
         <h1>Register</h1>
         <div className='Register'>
