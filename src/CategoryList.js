@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Session from './Session';
 import Axios from 'axios';
 import Constants from './Constants';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class CategoryList extends Component {
   session = Session.getInstance();
+  currentid = null;
   state = {
     categories: [],
+    courses:[],
     name: '',
     description: '',
     catclicked: null
@@ -26,7 +28,11 @@ class CategoryList extends Component {
   };
 
   onAddCategory = () => {
-    let cat = { name: this.state.name, description: this.state.description };
+    let cat = {
+      name: this.state.name,
+      description: this.state.description,
+      parent: this.currentid
+    };
     console.log('adding cat', cat);
     Axios.post(Constants.BASE_URL + 'category/addcategory', cat).then(() => {
       this.fetchCategories();
@@ -34,33 +40,53 @@ class CategoryList extends Component {
   };
 
   fetchCategories() {
-    Axios.get(Constants.BASE_URL + 'category/getallcategories').then(res => {
+    let id = this.props.match.params.id || null;
+    console.log('id', id);
+    let url = 'category/getallcategories?id=' + id;
+    if (!id) {
+      url = 'category/getallcategories';
+    }
+
+    Axios.get(Constants.BASE_URL + url).then(res => {
       let data = res.data || [];
       this.session.categories = data;
       console.log('res.data', '[' + data + ']');
+      this.currentid = id;
       this.setState({ categories: data });
     });
+
+    if (id) {
+      Axios.get(
+        Constants.BASE_URL + 'coursecontent/getallcoursecontent?categoryid=' + id
+      ).then(res => {
+        console.log('gacc result',res.data);
+        let data = res.data || [];
+        this.setState({ courses: data });
+      });
+    }
   }
   render() {
     console.log(this.props);
-    if (this.state.catclicked) {
-      let cc=this.state.catclicked;
-      this.setState({catclicked:null});
-      return <Redirect to={'/CategoryList/' + cc} />;
-    }
-    if (!this.session.categories) {
+    // if (this.state.catclicked) {
+    //   let cc=this.state.catclicked;
+    //   this.setState({catclicked:null});
+    //   return <Redirect to={'/CategoryList/' + cc} />;
+    // }
+    if (this.props.match.params.id !== this.currentid) {
       this.fetchCategories();
     }
 
     return (
       <>
-        <h1>Courses</h1>
+        <h1>Categories</h1>
         <div className=' container' style={{ marginLeft: '200px' }}>
           <div className='row'>
             {this.state.categories.map(c => {
               return (
                 <div className='col-4'>
                   <div className='course-card'>
+                    {/* <i style={{marginLeft:'180px'}} className="fa fa-edit"></i> */}
+
                     <div
                       className='card-body'
                       style={{
@@ -69,12 +95,18 @@ class CategoryList extends Component {
                     >
                       <h5 className='card-title'>{c.name}</h5>
                       <p className='card-text'>{c.description}</p>
-                      <button
+                      <Link
+                        to={'/CategoryList/' + c._id}
                         className='btn btn-success'
-                        onClick={this.onClickCat.bind(this, c._id)}
                       >
-                        View Course
-                      </button>
+                        View Category
+                      </Link>
+                      <Link
+                        to={'/course/' + c._id + '/' + c.name}
+                        className='btn btn-success'
+                      >
+                        Add Sub Course
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -82,7 +114,20 @@ class CategoryList extends Component {
             })}
           </div>
         </div>
+
+        <h1>Courses</h1>
+        {this.state.courses.map((c)=>{
+          return (
+            <>
+              <div className="course-card">
+                <Link to={'/CourseDetails/'+c._id+'/'+c.CourseName}>{c.CourseName}</Link>
+              </div>
+            </>
+          );
+        })}
+
         <div>
+          <h2>Add New Subcategory</h2>
           <table>
             <tr>
               <td>

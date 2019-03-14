@@ -23,8 +23,7 @@ class AddVideo extends Component {
   };
 
   onAdd = () => {
-
-    Axios.post(Constants.BASE_URL+'video/addvideo',this.state).then(res=>{
+        Axios.post(Constants.BASE_URL+'video/addvideo',this.state).then(res=>{
       console.log(res);
     });
 
@@ -87,11 +86,10 @@ class AddVideo extends Component {
           </tr>
           <tr>
             <td><label>Description</label></td>
-            <td> <input
-            type='text'
+            <td> <textarea
             onChange={this.onChangeVDescription}
             className='form-control'
-          />
+          ></textarea>
          </td>
           </tr>
           <tr>

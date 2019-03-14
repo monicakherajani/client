@@ -4,14 +4,13 @@ import Axios from 'axios';
 import Constants from './Constants';
 import TutSidebar from './TutSidebar';
 
-
 class Course extends Component {
   state = {
     CourseName: '',
-    ShortName:'',
+    ShortName: '',
     Description: '',
     Subtopics: '',
-    Availability:'',
+    Availability: '',
     TagArray: []
   };
   onChangeCourseName = event => {
@@ -31,15 +30,14 @@ class Course extends Component {
     this.setState({ Availability: event.target.value });
   };
 
-  onCreateCourse=event=>{
-    Axios.post(Constants.BASE_URL+'')
+  onCreateCourse = event => {
+    Axios.post(Constants.BASE_URL + '');
   };
   onAdd = () => {
-
-    Axios.post(Constants.BASE_URL+'video/addvideo',this.state).then(res=>{
+    this.state['categoryid']=this.props.match.params.id;
+    Axios.post(Constants.BASE_URL + 'coursecontent/addcoursecontent', this.state).then(res => {
       console.log(res);
     });
-
   };
 
   onAddTag = event => {
@@ -78,119 +76,134 @@ class Course extends Component {
     this.setState({ TagArray: tagarray });
   }
 
-
   render() {
     return (
       <React.Fragment>
         <TutSidemenu />
-        <TutSidebar/>
-        <table className="table container">
-        <h1>Create Course</h1>
-        <div className='form-container' style={{ width: '60%' }}>
-        <br/>
-        <tr>
-       
-       
-        <td><label>Category</label></td>
-        <input type="checkbox" name="cat1" value="Competitive"/> Competitive Exam  &nbsp;&nbsp; 
+        <TutSidebar />
+        <table className='table container'>
+          <h1>Create Course in {this.props.match.params.name}</h1>
+          <div className='form-container' style={{ width: '60%' }}>
+            <br />
+            {/* <tr>
+              <td>
+                <label>Category</label>
+              </td>
+              <input type='checkbox' name='cat1' value='Competitive' />{' '}
+              Competitive Exam &nbsp;&nbsp;
+              <input type='checkbox' name='cat2' value='Campus' /> Campus
+              Placement &nbsp;&nbsp;
+              <input type='checkbox' name='cat3' value='General' /> General
+              Category
+              <br />
+            </tr> */}
+            <tr>
+              <td>
+                <label>Course Full Name</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeCourseName}
+                  className='form-control'
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Course Short Name</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeCourseShortName}
+                  className='form-control'
+                />
+              </td>
+            </tr>
 
-  <input type="checkbox" name="cat2" value="Campus"/> Campus Placement &nbsp;&nbsp; 
-  <input type="checkbox" name="cat3" value="General" /> General Category<br/>
-  
-  </tr>
-        <tr>
-       
-        <td><label>Course Full Name</label></td>
-        <td> <input
-            type='text'
-            onChange={this.onChangeCourseName}
-            className='form-control'
-          /></td>
-          </tr>
-          <tr>
-       
-        <td><label>Course Short Name</label></td>
-        <td> <input
-            type='text'
-            onChange={this.onChangeCourseShortName}
-            className='form-control'
-          /></td>
-          </tr>
-        
-          <tr>
-          <td><label>Description</label></td>
-          <td> <input
-            type='text'
-            onChange={this.onChangeDescription}
-            className='form-control'
-          /></td>
-          </tr>
-          <tr>
-          <td> <label>Subtopics</label></td>
-          <td><input
-            type='text'
-            onChange={this.onChangeSubtopics}
-            className='form-control'
-          /></td>
-          </tr>
-          <tr>
-          <td> <label>Availability</label></td>
-          <td><input
-            type='datetime-local'
-            onChange={this.onAvailability}
-            className='form-control'
-          /></td>
-          </tr>
-          
-          <tr>
-          
-          <td> <label>Visibility</label></td>
-          <input type="radio" name="all" value="all"/> To all students<br/>
-<input type="radio" name="batch" value="batch"/> To my batch<br/>
+            <tr>
+              <td>
+                <label>Description</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeDescription}
+                  className='form-control'
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {' '}
+                <label>Availability</label>
+              </td>
+              <td>
+                <input
+                  type='datetime-local'
+                  onChange={this.onAvailability}
+                  className='form-control'
+                />
+              </td>
+            </tr>
 
-          </tr>
-        
-<tr>
-<td><label>Tags</label></td>
-<td> <input
-          type='text'
-          onChange={this.onChangeTags}
-          onBlur={this.onAddTag}
-          className='form-control'
-        />
-        </td>
-        </tr>
-        {this.state.TagArray.length === 0 ? (
-          <span>No Tags selected</span>
-        ) : (
-          this.state.TagArray.map(t => {
-            return (
-              <>
-                <button
-                  style={{ minWidth: '30%', marginBottom: '2px' }}
-                  onClick={() => {
-                    this.removeTag(t);
-                  }}
-                  className='btn btn-primary'
-                >
-                  {t}&nbsp;&nbsp;&nbsp;
-                  <i className='fas fa-trash' />
-                </button>
-                <br />
-                
+            <tr>
+              <td>
+                {' '}
+                <label>Visibility</label>
+              </td>
+              <input type='radio' name='all' value='all' /> To all students
+              <br />
+              <input type='radio' name='batch' value='batch' /> To my batch
+              <br />
+            </tr>
 
-              </>
-            );
-          })
-        )}
-
-        <button className='btn btn-success' onClick={this.onAdd}>
-          Create Course
-        </button>
-        </div>
+            <tr>
+              <td>
+                <label>Tags</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeTags}
+                  onBlur={this.onAddTag}
+                  className='form-control'
+                />
+              </td>
+            </tr>
+            {this.state.TagArray.length === 0 ? (
+              <span>No Tags selected</span>
+            ) : (
+              this.state.TagArray.map(t => {
+                return (
+                  <>
+                    <button
+                      style={{ minWidth: '100px', marginBottom: '2px', marginLeft:'2px' }}
+                      onClick={() => {
+                        this.removeTag(t);
+                      }}
+                      className='btn btn-primary'
+                    >
+                      {t}&nbsp;&nbsp;&nbsp;
+                      <i className='fas fa-trash' />
+                    </button>
+                    {/* <br /> */}
+                  </>
+                );
+              })
+            )}
+            <br />
+            <button className='btn btn-success' onClick={this.onAdd}>
+              Create Course
+            </button>
+          </div>
         </table>
       </React.Fragment>
-    
     );
   }
 }

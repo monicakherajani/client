@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import TcsImg from './tcs.jpg';
-import Tcs2 from './Tcs2.png';
-import Tcs3 from './Tcs3.jpg'
+import Iasys3 from './Iasys3.jpg';
+import Inasys1 from './Inasys1.jpg';
+// import Iasys2 from './Iasys.jpg';
+
 class Iasys extends Component {
   render() {
     return (
@@ -37,19 +38,19 @@ class Iasys extends Component {
           <div className='row'>
             <div className='column'>
               <img
-                src={TcsImg}
+                src={Inasys1}
                 style={{ height: '300px', width: '100%' }}
               />
             </div>
             <div className='column'>
               <img
-                src={Tcs2}
+                src=''
                 style={{  height: '300px', width: '100%' }}
               />
             </div>
             <div className='column'>
               <img
-                src={Tcs3}
+                src={Iasys3}
                 style={{  height: '300px', width: '100%' }}
               />
             </div>

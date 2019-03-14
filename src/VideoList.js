@@ -9,25 +9,21 @@ class VideoList extends Component {
     videos: []
   };
 
-  init=false;
+  init = false;
+  tags = null;
 
-  session=Session.getInstance();
-
-  constructor() {    
-    super();
-  }
+  session = Session.getInstance();
+// copy this code in test ques resorces n ad 1 line in coursedetails
 
   render() {
-
-    if(!this.init)
-    {
-      console.log("this",this.props.tags);
-      Axios.get(Constants.BASE_URL + `video/getvideolist?tags=${this.props.tags}`).then(
-        res => {
-          this.setState({ videos: res.data });
-        }
-      );
-        this.init=true;
+    if (this.tags !== this.props.tags) {
+      console.log('this', this.props.tags);
+      Axios.get(
+        Constants.BASE_URL + `video/getvideolist?tags=${this.props.tags}`
+      ).then(res => {
+        this.setState({ videos: res.data });
+      });
+      this.tags = this.props.tags;
     }
 
     console.log(this.state.videos);

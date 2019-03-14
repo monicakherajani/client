@@ -13,7 +13,8 @@ import Mphasis from './Mphasis.jpg';
 import Persi from './PersiImg.jpg';
 import Syntel from './Syntel.jpg';
 import CapImg from './Capgemini.jpg';
-import Tcs2 from './Tcs2.png'
+import Tcs2 from './Tcs2.png';
+import jio1 from './jio1.jpeg';
 
 class Campus extends Component {
   render() {
@@ -173,6 +174,7 @@ class Campus extends Component {
             </div>
             <div className='col-4'>
               <div className='course-card'>
+              <img src={jio1} className='card-img-top' alt='...' />
                 <div className='card-body' style={{ height: '200px' }}>
                   <h5 className='card-title'>Reliance Jio</h5>
                   <p className='card-text'>
@@ -189,7 +191,7 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Demand Farm.Join now!
                   </p>
-                  <button className='btn btn-success'>View Course</button>
+                  <a href="./Iasys" className='btn btn-success'>View Course</a>
                 </div>
               </div>
             </div>

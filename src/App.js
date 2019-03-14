@@ -90,7 +90,7 @@ class App extends Component {
             <Route path='/TutorRegistration' render={props => <TutorRegistration {...props} />} />
             <Route path='/TutLogin' render={props => <TutLogin {...props} />} />
             <Route path='/TutSidemenu' render={props => <TutSidemenu {...props} />} />
-            <Route path='/course' render={props => <Course {...props} />} />
+            <Route path='/course/:id/:name' render={props => <Course {...props} />} />
               <Route path='/Sidebar2' render={props => <Sidebar2 {...props} />} />
               <Route path='/Test' render={props => <Test {...props} />} />
               <Route path='/Questions' render={props => <Questions {...props} />} />
@@ -98,7 +98,7 @@ class App extends Component {
               <Route path='/VideoList' render={props => <VideoList {...props} />} />
               <Route path='/AddVideo' render={props => <AddVideo {...props} />} />
               <Route path='/Resources' render={props => <Resorces {...props} />} />
-              <Route path='/CourseDetails' render={props => <CourseDetails {...props} />} />
+              <Route path='/CourseDetails/:id/:name' render={props => <CourseDetails {...props} />} />
               <Route path='/EditStudent' render={props => <EditStudent {...props} />} />
               <Route path='/FindStudent' render={props => <FindStudent {...props} />} />
               <Route path='/InfyLearn' render={props => <InfyLearn {...props} />} />
