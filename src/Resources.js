@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TutSidemenu from './TutSidemenu';
 import axios from 'axios';
 import Constants from './Constants';
+import TutSidebar from './TutSidebar';
 
 
 class Resources extends Component {
@@ -80,7 +81,7 @@ class Resources extends Component {
 
     console.log(form);
 
-    axios.post(Constants.BASE_URL + 'addquestion', form).then(res => {
+    axios.post(Constants.BASE_URL + 'addresource', form).then(res => {
       console.log(res);
     });
   };
@@ -90,10 +91,10 @@ class Resources extends Component {
       <React.Fragment>
         
         <TutSidemenu />
-      
+        <TutSidebar/>
         <div className='container' style={{ width: '40%' }}>
         <h1>Add Resource</h1>
-          <label>Resource Name</label>
+          <label>Resource Name/URL</label>
           <input
             type='text'
             onChange={this.onChangeName}
@@ -136,17 +137,21 @@ class Resources extends Component {
                     {t}&nbsp;&nbsp;&nbsp;
                     <i className='fas fa-trash' />
                   </button>
+                
+
                   <br />
+                  
                   </>
               );
             })
           )}
          
-        </div>
+        
         <button className='btn btn-success' onClick={this.onChangeUpload}>
           Upload Resource
         </button>
-
+        </div>
+        
               </React.Fragment>
     );
   }

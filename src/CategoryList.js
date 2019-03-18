@@ -9,7 +9,7 @@ class CategoryList extends Component {
   currentid = null;
   state = {
     categories: [],
-    courses:[],
+    courses: [],
     name: '',
     description: '',
     catclicked: null
@@ -51,20 +51,33 @@ class CategoryList extends Component {
       let data = res.data || [];
       this.session.categories = data;
       console.log('res.data', '[' + data + ']');
-      this.currentid = id;
       this.setState({ categories: data });
+      this.currentid = id;
     });
 
     if (id) {
       Axios.get(
-        Constants.BASE_URL + 'coursecontent/getallcoursecontent?categoryid=' + id
+        Constants.BASE_URL +
+          'coursecontent/getallcoursecontent?categoryid=' +
+          id
       ).then(res => {
-        console.log('gacc result',res.data);
+        console.log('gacc result', res.data);
         let data = res.data || [];
         this.setState({ courses: data });
       });
+    // } else {
+    //   this.setState({ courses: [] });
     }
   }
+
+  // shouldComponentUpdate()
+  // {
+  //   // if (this.props.match.params.id !== this.currentid) {
+  //     return true;
+  //   // }
+  // }
+
+
   render() {
     console.log(this.props);
     // if (this.state.catclicked) {
@@ -72,9 +85,7 @@ class CategoryList extends Component {
     //   this.setState({catclicked:null});
     //   return <Redirect to={'/CategoryList/' + cc} />;
     // }
-    if (this.props.match.params.id !== this.currentid) {
-      this.fetchCategories();
-    }
+    console.log('render', this.props.match.params.id, this.currentid);
 
     return (
       <>
@@ -116,11 +127,13 @@ class CategoryList extends Component {
         </div>
 
         <h1>Courses</h1>
-        {this.state.courses.map((c)=>{
+        {this.state.courses.map(c => {
           return (
             <>
-              <div className="course-card">
-                <Link to={'/CourseDetails/'+c._id+'/'+c.CourseName}>{c.CourseName}</Link>
+              <div className='course-card'>
+                <Link to={'/CourseDetails/' + c._id + '/' + c.CourseName}>
+                  {c.CourseName}
+                </Link>
               </div>
             </>
           );

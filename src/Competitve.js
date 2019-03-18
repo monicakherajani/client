@@ -25,17 +25,6 @@ class Competitive extends Component {
             <div className='col-4'>
               <div className='course-card' style={{ display: 'inline-block' }}>
                 <div className='card-body'>
-                  <h5 className='card-title'>MPSC</h5>
-                  <p className='card-text'>
-                    Complete preparation to crack MPSC.Join now!
-                  </p>
-                  <button className='btn btn-success'>View Course</button>
-                </div>
-              </div>
-            </div>
-            <div className='col-4'>
-              <div className='course-card' style={{ display: 'inline-block' }}>
-                <div className='card-body'>
                   <h5 className='card-title'>Gate</h5>
                   <p className='card-text'>
                     Complete preparation to crack Gate.Join now!

@@ -3,6 +3,7 @@ import Session from './Session';
 import VideoList from './VideoList';
 import Axios from 'axios';
 import Constants from './Constants';
+import TestList from './TestList';
 
 class CourseDetails extends Component {
   state = {
@@ -34,6 +35,7 @@ class CourseDetails extends Component {
     return( <>
     <h1>Course : {this.props.match.params.name}</h1>
         <VideoList tags={this.getTags()}></VideoList>
+        <TestList tags={this.getTags()}></TestList>
 -    </>);
   }
 }

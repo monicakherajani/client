@@ -3,9 +3,14 @@ import TutSidemenu from './TutSidemenu';
 import axios from 'axios';
 import Constants from './Constants';
 import TutSidebar from './TutSidebar';
+import Axios from 'axios';
 
 class Questions extends Component {
   state = {
+    Name:'',
+    QType:'',
+    Option1:'',Option2:'',Option3:'',Option4:'',
+    Option1Image:'',Option2Image:'',Option3Image:'',Option4Image:'',
     TagArray:[]
 
   };
@@ -55,6 +60,14 @@ class Questions extends Component {
     this.setState({ QuestionImage: event.target.files[0] });
     // console.log(event.target.files[0]);
   };
+
+  onSubmitQuestion = () => {
+    Axios.post(Constants.BASE_URL+'test/addtest',this.state).then(res=>{
+  console.log(res);
+});
+
+};
+
 
   onAddTag = event => {
     let tagarray = this.state.TagArray;
@@ -275,7 +288,7 @@ class Questions extends Component {
          
         
         <button className='btn btn-success' onClick={this.onSubmitQuestion}>
-          Submit Question
+          Submit Questions
         </button>
 
         <a href='./Questions' className='btn btn-success'>

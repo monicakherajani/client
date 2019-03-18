@@ -41,6 +41,7 @@ import Syntel from './Syntel';
 import Capgemini from './Capgemini'
 import Reliance from './Reliance';
 import Iasys from './Iasys';
+import Cometitive from './Competitve';  
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Exams from './Exams';
@@ -121,7 +122,7 @@ class App extends Component {
               <Route path='/Iasys' render={props => <Iasys {...props} />} />
               <Route path='/CategoryList/:id?' render={props => <CategoryList {...props} />} />
 
-
+              <Route path='/Competitve' render={props => <Cometitive {...props} />} />
 
 
 

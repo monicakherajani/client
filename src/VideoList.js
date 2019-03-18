@@ -13,7 +13,7 @@ class VideoList extends Component {
   tags = null;
 
   session = Session.getInstance();
-// copy this code in test ques resorces n ad 1 line in coursedetails
+
 
   render() {
     if (this.tags !== this.props.tags) {
