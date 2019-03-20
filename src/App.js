@@ -43,6 +43,8 @@ import Reliance from './Reliance';
 import Iasys from './Iasys';
 import Cometitive from './Competitve';  
 
+import CourseSidebar from './CourseSidebar';  
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Exams from './Exams';
 import CourseDetails from './CourseDetails';
@@ -123,7 +125,7 @@ class App extends Component {
               <Route path='/CategoryList/:id?' render={props => <CategoryList {...props} />} />
 
               <Route path='/Competitve' render={props => <Cometitive {...props} />} />
-
+<Route path='/CourseSidebar' render={props => <CourseSidebar {...props} />} />
 
 
 

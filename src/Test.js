@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Questions from './Questions';
 import TutSidemenu from './TutSidemenu';
 import TutSidebar from './TutSidebar';
+import Constants from './Constants';
+import Axios from 'axios';
+import { Redirect, Link } from 'react-router-dom';
 class Test extends Component {
   state = {
     Name: '',
@@ -22,6 +25,13 @@ class Test extends Component {
   onChangeDuration = event => {
     this.setState({ Duration: event.target.value });
   };
+  onAddTest = () => {
+    Axios.post(Constants.BASE_URL+'test/addtest',this.state).then(res=>{
+  console.log(res);
+  this.setState({redirect:true});
+});
+
+};
   onAddTag = event => {
     let tagarray = this.state.TagArray;
     let val = event.target.value.toLowerCase().trim();
@@ -59,6 +69,11 @@ class Test extends Component {
   }
 
   render() {
+    if(this.state.redirect)
+    {
+
+            return <Redirect to='/Questions/'/>;
+    }
     return (
       <React.Fragment>
         
@@ -132,9 +147,9 @@ class Test extends Component {
             })
           )}
         </div>
-        <a href='./Questions' style={{maginLeft:'1020px'}} className='btn btn-success'>
-          Add Questions
-        </a>
+        <button style={{maginLeft:'1020px'}} className='btn btn-success' onClick={this.onAddTest}>
+          Create Test
+        </button>
         </table>
       </React.Fragment>
     );

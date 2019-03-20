@@ -62,7 +62,7 @@ class Questions extends Component {
   };
 
   onSubmitQuestion = () => {
-    Axios.post(Constants.BASE_URL+'test/addtest',this.state).then(res=>{
+    Axios.post(Constants.BASE_URL+'question/addquestion',this.state).then(res=>{
   console.log(res);
 });
 

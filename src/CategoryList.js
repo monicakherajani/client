@@ -12,7 +12,8 @@ class CategoryList extends Component {
     courses: [],
     name: '',
     description: '',
-    catclicked: null
+    catclicked: null,
+    isLoaded: false
   };
 
   onNameChange = event => {
@@ -21,10 +22,14 @@ class CategoryList extends Component {
   onDescChange = event => {
     this.setState({ description: event.target.value });
   };
+  onChangeURL = event => {
+    this.setState({ description: event.target.value });
+  };
 
   onClickCat = catid => {
     console.log('clicked', catid);
     this.setState({ catclicked: catid });
+    window.setTimeout(()=>{this.fetchCategories();},500);
   };
 
   onAddCategory = () => {
@@ -63,7 +68,9 @@ class CategoryList extends Component {
       ).then(res => {
         console.log('gacc result', res.data);
         let data = res.data || [];
-        this.setState({ courses: data });
+        this.setState({ courses: data ,
+      
+       });
       });
     // } else {
     //   this.setState({ courses: [] });
@@ -77,19 +84,27 @@ class CategoryList extends Component {
   //   // }
   // }
 
+  // componentWillReceiveProps(nextProps, nextState)
+  componentDidMount()
+  // componentDidUpdate()
+  {
+    console.log('cdm');
+   this.fetchCategories();
+  }
 
   render() {
     console.log(this.props);
-    // if (this.state.catclicked) {
-    //   let cc=this.state.catclicked;
-    //   this.setState({catclicked:null});
-    //   return <Redirect to={'/CategoryList/' + cc} />;
-    // }
+    if (this.state.catclicked) {
+      let cc=this.state.catclicked;
+      this.setState({catclicked:null});
+      return <Redirect to={'/CategoryList/' + cc} />;
+    }
     console.log('render', this.props.match.params.id, this.currentid);
+
 
     return (
       <>
-        <h1>Categories</h1>
+        <h1> Course Categories</h1>
         <div className=' container' style={{ marginLeft: '200px' }}>
           <div className='row'>
             {this.state.categories.map(c => {
@@ -106,12 +121,13 @@ class CategoryList extends Component {
                     >
                       <h5 className='card-title'>{c.name}</h5>
                       <p className='card-text'>{c.description}</p>
-                      <Link
+                      {/* <Link
                         to={'/CategoryList/' + c._id}
                         className='btn btn-success'
                       >
                         View Category
-                      </Link>
+                      </Link> */}
+                      <button className="btn btn-success" onClick={this.onClickCat.bind(this,c._id)}> View </button>
                       <Link
                         to={'/course/' + c._id + '/' + c.name}
                         className='btn btn-success'
@@ -131,7 +147,7 @@ class CategoryList extends Component {
           return (
             <>
               <div className='course-card'>
-                <Link to={'/CourseDetails/' + c._id + '/' + c.CourseName}>
+                <Link to ={'/CourseDetails/' + c._id + '/' + c.CourseName}> 
                   {c.CourseName}
                 </Link>
               </div>
@@ -156,6 +172,14 @@ class CategoryList extends Component {
               </td>
               <td>
                 <input type='text' onChange={this.onDescChange} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>URL</span>
+              </td>
+              <td>
+                <input type='text' onChange={this.onChangeURL} />
               </td>
             </tr>
           </table>
