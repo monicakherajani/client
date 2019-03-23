@@ -7,12 +7,17 @@ import Axios from 'axios';
 
 class Questions extends Component {
   state = {
-    Name:'',
-    QType:'',
-    Option1:'',Option2:'',Option3:'',Option4:'',
-    Option1Image:'',Option2Image:'',Option3Image:'',Option4Image:'',
-    TagArray:[]
-
+    Name: '',
+    QType: '',
+    Option1: '',
+    Option2: '',
+    Option3: '',
+    Option4: '',
+    Option1Image: '',
+    Option2Image: '',
+    Option3Image: '',
+    Option4Image: '',
+    TagArray: []
   };
 
   onChangeTags = event => {
@@ -61,13 +66,13 @@ class Questions extends Component {
     // console.log(event.target.files[0]);
   };
 
-  onSubmitQuestion = () => {
-    Axios.post(Constants.BASE_URL+'question/addquestion',this.state).then(res=>{
-  console.log(res);
-});
-
-};
-
+  // onSubmitQuestion = () => {
+  //   Axios.post(Constants.BASE_URL + 'question/addquestion', this.state).then(
+  //     res => {
+  //       console.log(res);
+  //     }
+  //   );
+  // };
 
   onAddTag = event => {
     let tagarray = this.state.TagArray;
@@ -105,11 +110,11 @@ class Questions extends Component {
     this.setState({ TagArray: tagarray });
   }
 
- 
   onSubmitQuestion = () => {
     console.log('state', this.state);
     let form = new FormData();
-    form.set('question', JSON.stringify(this.state));
+    form.append('question', JSON.stringify(this.state));
+    console.log('formdata', form,form['question']);
 
     if (this.state.QuestionImage) {
       form.append(
@@ -153,7 +158,7 @@ class Questions extends Component {
 
     console.log(form);
 
-    axios.post(Constants.BASE_URL + 'addquestion', form).then(res => {
+    axios.post(Constants.BASE_URL + 'question/addquestion', form).then(res => {
       console.log(res);
     });
   };
@@ -162,139 +167,179 @@ class Questions extends Component {
     return (
       <React.Fragment>
         <TutSidemenu />
-        <TutSidebar/>
-        <table className="table container">
-        
-        <h1>Add Questions</h1>
-        <div className='form-container' style={{ width: '60%' }}>
-        <tr>
-         <td> <label>Question Type</label></td>
-         <td> <input
-            type='text'
-            onChange={this.onChangeQtype}
-            className='form-control'
-          /></td>
-          </tr>
-          <tr>
-          <td><label>Enter Question</label></td>
-          <td> <input
-            type='text'
-            onChange={this.onChangeName}
-            className='form-control'
-          /></td>
-         Image{' '}
-          <input
-            type='file'
-            onChange={this.onChangeQuestionImage}
-            name='option1image'
-          />
-          </tr>
-          <tr>
-         <td> <label>Option 1</label></td>
-         <td>  <input
-            type='text'
-            onChange={this.onChangeOption1}
-            className='form-control'
-          /></td>
-          
-          Image{' '}
-          <input
-            type='file'
-            onChange={this.onChangeOption1Image}
-            name='option1image'
-          />
-          </tr>
-          <tr>
-        <td>  <label>Option 2</label></td>
-        <td><input
-            type='text'
-            onChange={this.onChangeOption2}
-            className='form-control'
-          /></td>
-          Image{' '}
-          <input
-            type='file'
-            onChange={this.onChangeOption2Image}
-            name='option1image'
-          /></tr>
-          <tr>
-          <td><label>Option 3</label></td>
-          <td> <input
-            type='text'
-            onChange={this.onChangeOption3}
-            className='form-control'
-          /></td>
-          Image{' '}
-          <input
-            type='file'
-            onChange={this.onChangeOption3Image}
-            name='option1image'
-          />
-          </tr>
-          <tr>
-          <td><label>Option 4</label></td>
-          <td><input
-            type='text'
-            onChange={this.onChangeOption4}
-            className='form-control'
-          /></td>
-          Image{' '}
-          <input
-            type='file'
-            onChange={this.onChangeOption4Image}
-            name='option1image'
-          />
-          </tr>
-          {/* <hr /> */}
-          <tr>
-          <td>  <label>Correct Answer</label></td>
-          <td> <input
-            type='text'
-            onChange={this.onChangeCorrectAns}
-            className='form-control'
-          /></td>
-          </tr>
-          <tr>
-          <td> <label>Tags</label></td>
-          <td> <input
-            type='text'
-            onChange={this.onChangeTags}
-            onBlur={this.onAddTag}
-            className='form-control'
-          /></td>
-          </tr>
-          {this.state.TagArray.length === 0 ? (
-            <span>No Tags selected</span>
-          ) : (
-            this.state.TagArray.map(t => {
-              return (
-                <>
-                  <button
-                    style={{ minWidth: '30%', marginBottom: '2px' }}
-                    onClick={() => {
-                      this.removeTag(t);
-                    }}
-                    className='btn btn-primary'
-                  >
-                    {t}&nbsp;&nbsp;&nbsp;
-                    <i className='fas fa-trash' />
-                  </button>
-                  <br />
-                  
+        <TutSidebar />
+        <table className='table container'>
+          <h1>Add Questions</h1>
+          <div className='form-container' style={{ width: '60%' }}>
+            <tr>
+              <td>
+                {' '}
+                <label>Question Type</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeQtype}
+                  className='form-control'
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Enter Question</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeName}
+                  className='form-control'
+                />
+              </td>
+              Image{' '}
+              <input
+                type='file'
+                onChange={this.onChangeQuestionImage}
+                name='option1image'
+              />
+            </tr>
+            <tr>
+              <td>
+                {' '}
+                <label>Option 1</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeOption1}
+                  className='form-control'
+                />
+              </td>
+              Image{' '}
+              <input
+                type='file'
+                onChange={this.onChangeOption1Image}
+                name='option1image'
+              />
+            </tr>
+            <tr>
+              <td>
+                {' '}
+                <label>Option 2</label>
+              </td>
+              <td>
+                <input
+                  type='text'
+                  onChange={this.onChangeOption2}
+                  className='form-control'
+                />
+              </td>
+              Image{' '}
+              <input
+                type='file'
+                onChange={this.onChangeOption2Image}
+                name='option1image'
+              />
+            </tr>
+            <tr>
+              <td>
+                <label>Option 3</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeOption3}
+                  className='form-control'
+                />
+              </td>
+              Image{' '}
+              <input
+                type='file'
+                onChange={this.onChangeOption3Image}
+                name='option1image'
+              />
+            </tr>
+            <tr>
+              <td>
+                <label>Option 4</label>
+              </td>
+              <td>
+                <input
+                  type='text'
+                  onChange={this.onChangeOption4}
+                  className='form-control'
+                />
+              </td>
+              Image{' '}
+              <input
+                type='file'
+                onChange={this.onChangeOption4Image}
+                name='option1image'
+              />
+            </tr>
+            {/* <hr /> */}
+            <tr>
+              <td>
+                {' '}
+                <label>Correct Answer</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeCorrectAns}
+                  className='form-control'
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {' '}
+                <label>Tags</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeTags}
+                  onBlur={this.onAddTag}
+                  className='form-control'
+                />
+              </td>
+            </tr>
+            {this.state.TagArray.length === 0 ? (
+              <span>No Tags selected</span>
+            ) : (
+              this.state.TagArray.map(t => {
+                return (
+                  <>
+                    <button
+                      style={{ minWidth: '30%', marginBottom: '2px' }}
+                      onClick={() => {
+                        this.removeTag(t);
+                      }}
+                      className='btn btn-primary'
+                    >
+                      {t}&nbsp;&nbsp;&nbsp;
+                      <i className='fas fa-trash' />
+                    </button>
+                    <br />
                   </>
-              );
-            })
-          )}
-         
-        
-        <button className='btn btn-success' onClick={this.onSubmitQuestion}>
-          Submit Questions
-        </button>
+                );
+              })
+            )}
 
-        <a href='./Questions' className='btn btn-success'>
-          Add next Question
-        </a>
-        </div>
+            <button className='btn btn-success' onClick={this.onSubmitQuestion}>
+              Submit Questions
+            </button>
+
+            <a href='./Questions' className='btn btn-success'>
+              Add next Question
+            </a>
+          </div>
         </table>
       </React.Fragment>
     );

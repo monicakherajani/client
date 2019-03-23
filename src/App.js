@@ -38,12 +38,12 @@ import Persistent from './Persistent';
 import Epic from './Epic';
 import Mphasis from './Mphasis';
 import Syntel from './Syntel';
-import Capgemini from './Capgemini'
+import Capgemini from './Capgemini';
 import Reliance from './Reliance';
 import Iasys from './Iasys';
-import Cometitive from './Competitve';  
+import Cometitive from './Competitve';
 
-import CourseSidebar from './CourseSidebar';  
+import CourseSidebar from './CourseSidebar';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Exams from './Exams';
@@ -52,7 +52,8 @@ import TutSidebar from './TutSidebar';
 import StudentManagement from './StudentManagement';
 import BatchManagement from './BatchManagement';
 import CategoryList from './CategoryList';
-
+import VideoPlayer from './VideoPlayer';
+import QuestionList from './QuestionList';
 
 class App extends Component {
   constructor(props) {
@@ -73,7 +74,6 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        
         <BrowserRouter>
           <Switch>
             <Route exact path='/' render={props => <FirstPage {...props} />} />
@@ -81,56 +81,115 @@ class App extends Component {
               path='/studentlogin'
               render={props => <StudentLogin {...props} />}
             />
-            
+
             {/* <Route path='/adminlogin' render={props => <Login {...props} />} /> */}
             <Route
               path='/tutorlogin'
               render={props => <TutorLogin {...props} />}
             />
             <Route path='/register' render={props => <Register {...props} />} />
-            <Route path='/downloads' render={props => <Downloads {...props} />} />
+            <Route
+              path='/downloads'
+              render={props => <Downloads {...props} />}
+            />
             <Route path='/campus' render={props => <Campus {...props} />} />
-            <Route path='/TutorRegistration' render={props => <TutorRegistration {...props} />} />
+            <Route
+              path='/TutorRegistration'
+              render={props => <TutorRegistration {...props} />}
+            />
             <Route path='/TutLogin' render={props => <TutLogin {...props} />} />
-            <Route path='/TutSidemenu' render={props => <TutSidemenu {...props} />} />
-            <Route path='/course/:id/:name' render={props => <Course {...props} />} />
-              <Route path='/Sidebar2' render={props => <Sidebar2 {...props} />} />
-              <Route path='/Test' render={props => <Test {...props} />} />
-              <Route path='/Questions' render={props => <Questions {...props} />} />
-              <Route path='/TestList' render={props => <TestList {...props} />} />
-              <Route path='/VideoList' render={props => <VideoList {...props} />} />
-              <Route path='/AddVideo' render={props => <AddVideo {...props} />} />
-              <Route path='/Resources' render={props => <Resorces {...props} />} />
-              <Route path='/CourseDetails/:id/:name' render={props => <CourseDetails {...props} />} />
-              <Route path='/EditStudent' render={props => <EditStudent {...props} />} />
-              <Route path='/FindStudent' render={props => <FindStudent {...props} />} />
-              <Route path='/InfyLearn' render={props => <InfyLearn {...props} />} />
-              <Route path='/Tcs' render={props => <Tcs {...props} />} />
-              <Route path='/LTI' render={props => <LTI {...props} />} />
-              <Route path='/Wipro' render={props => <Wipro {...props} />} />
-              <Route path='/TTL' render={props => <TTL {...props} />} />
-              <Route path='/TutSidebar' render={props => <TutSidebar{...props} />} />
-              <Route path='/StudentManagement' render={props => <StudentManagement{...props} />} />
-              <Route path='/BatchManagement' render={props => <BatchManagement {...props} />} />
+            <Route
+              path='/TutSidemenu'
+              render={props => <TutSidemenu {...props} />}
+            />
+            <Route
+              path='/course/:id/:name'
+              render={props => <Course {...props} />}
+            />
+            <Route path='/Sidebar2' render={props => <Sidebar2 {...props} />} />
+            <Route path='/Test' render={props => <Test {...props} />} />
+            <Route
+              path='/Questions'
+              render={props => <Questions {...props} />}
+            />
+            <Route path='/TestList' render={props => <TestList {...props} />} />
+            <Route
+              path='/VideoList'
+              render={props => <VideoList {...props} />}
+            />
+            <Route path='/AddVideo' render={props => <AddVideo {...props} />} />
+            <Route
+              path='/Resources'
+              render={props => <Resorces {...props} />}
+            />
+            <Route
+              path='/CourseDetails/:id/:name'
+              render={props => <CourseDetails {...props} />}
+            />
+            <Route
+              path='/EditStudent'
+              render={props => <EditStudent {...props} />}
+            />
+            <Route
+              path='/FindStudent'
+              render={props => <FindStudent {...props} />}
+            />
+            <Route
+              path='/InfyLearn'
+              render={props => <InfyLearn {...props} />}
+            />
+            <Route path='/Tcs' render={props => <Tcs {...props} />} />
+            <Route path='/LTI' render={props => <LTI {...props} />} />
+            <Route path='/Wipro' render={props => <Wipro {...props} />} />
+            <Route path='/TTL' render={props => <TTL {...props} />} />
+            <Route
+              path='/TutSidebar'
+              render={props => <TutSidebar {...props} />}
+            />
+            <Route
+              path='/StudentManagement'
+              render={props => <StudentManagement {...props} />}
+            />
+            <Route
+              path='/BatchManagement'
+              render={props => <BatchManagement {...props} />}
+            />
 
-              <Route path='/Persistent' render={props => <Persistent {...props} />} />
-              <Route path='/Epic' render={props => <Epic {...props} />} />
-              <Route path='/Mphasis' render={props => <Mphasis {...props} />} />
+            <Route
+              path='/Persistent'
+              render={props => <Persistent {...props} />}
+            />
+            <Route path='/Epic' render={props => <Epic {...props} />} />
+            <Route path='/Mphasis' render={props => <Mphasis {...props} />} />
 
-              <Route path='/Syntel' render={props => <Syntel {...props} />} />
+            <Route path='/Syntel' render={props => <Syntel {...props} />} />
 
-              <Route path='/Capgemini' render={props => <Capgemini {...props} />} />
-              <Route path='/Reliance' render={props => <Reliance {...props} />} />
-              <Route path='/Iasys' render={props => <Iasys {...props} />} />
-              <Route path='/CategoryList/:id?' render={props => <CategoryList {...props} />} />
+            <Route
+              path='/Capgemini'
+              render={props => <Capgemini {...props} />}
+            />
+            <Route path='/Reliance' render={props => <Reliance {...props} />} />
+            <Route path='/Iasys' render={props => <Iasys {...props} />} />
+            <Route
+              path='/CategoryList/:id?'
+              render={props => <CategoryList {...props} />}
+            />
 
-              <Route path='/Competitve' render={props => <Cometitive {...props} />} />
-<Route path='/CourseSidebar' render={props => <CourseSidebar {...props} />} />
+            <Route
+              path='/Competitve'
+              render={props => <Cometitive {...props} />}
+            />
+            <Route
+              path='/CourseSidebar'
+              render={props => <CourseSidebar {...props} />}
+            />
 
-
-
-
-            <Route path='/studentcourse'
+            <Route
+              path='/QuestionList'
+              render={props => <QuestionList {...props} />}
+            />
+            <Route
+              path='/studentcourse'
               render={props => <StudentCourse {...props} />}
             />
             <Route
@@ -141,9 +200,10 @@ class App extends Component {
               path='/sidemenu.js'
               render={props => <sidemenu {...props} />}
             />
+            <Route path='/Exams' render={props => <Exams {...props} />} />
             <Route
-              path='/Exams'
-              render={props => <Exams {...props} />}
+              path='/VideoPlayer'
+              render={props => <VideoPlayer {...props} />}
             />
           </Switch>
         </BrowserRouter>

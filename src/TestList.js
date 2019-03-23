@@ -5,8 +5,8 @@ import Constants from './Constants';
 import TutSidemenu from './TutSidemenu';
 import Session from './Session';
 class TestList extends Component {
-  state={
-    tests :[]
+  state = {
+    tests: []
   };
   init = false;
   tags = null;
@@ -14,7 +14,6 @@ class TestList extends Component {
   session = Session.getInstance();
 
   render() {
-
     if (this.tags !== this.props.tags) {
       console.log('this', this.props.tags);
       Axios.get(
@@ -31,30 +30,31 @@ class TestList extends Component {
     });
     return (
       <React.Fragment>
+        <h1>Tests</h1>
         {/* Test List */}
         {this.state.tests.map(t => {
-   
-    
-    return (
-     
-      
-        <React.Fragment>
-          <TutSidemenu/>
-        <div className='container'>
-        <div className='col-4'>
-              <div className='course-card'>
-                           <div className='card-body' style={{ height: '200px' }}>
-                  <h5 className='card-title'>{t.Name}</h5>
-                  <p className='card-text'>
-                    {t.Description}
-                    <br/>{t.No_questions}
-                    <br/>{t.Duration}
-                  </p>
-                  <a href="" className='btn btn-success'>Give Test</a>
+          return (
+            <React.Fragment>
+              
+              <div className='container'>
+                <div className='col-4'>
+                  <div className='course-card'>
+                    <div className='card-body' style={{ height: '200px' }}>
+                      <h5 className='card-title'>{t.Name}</h5>
+                      <p className='card-text'>
+                        {t.Description}
+                        <br />
+                        {t.No_questions}
+                        <br />
+                        {t.Duration}
+                      </p>
+                      <a href='' className='btn btn-success'>
+                        Give Test
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-    {/* <a href="" className="testlist testlisttitle">Campus Placement Test</a> 
+                {/* <a href="" className="testlist testlisttitle">Campus Placement Test</a> 
     <a href="./Test" className="testlist">Infosys</a>
     <a href="./Test" className="testlist">Tata Consultancy Services</a>
     <a href="./Test" className="testlist">Wipro</a>
@@ -66,12 +66,10 @@ class TestList extends Component {
     <a href="./Test" className="testlist">Indian Constitution and Indian Politics</a>
     <a href="./Test" className="testlist">Human Resource Development (HRD) and Human Rights</a>
     <a href="./Test" className="testlist">Economy and Planning, Economics of Development and Agriculture ,Science and Technology Development</a> */}
-
-</div>
-
-</React.Fragment>
-        );
-      })}
+              </div>
+            </React.Fragment>
+          );
+        })}
       </React.Fragment>
     );
   }

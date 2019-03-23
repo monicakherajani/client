@@ -133,18 +133,6 @@ class AddVideo extends Component {
               );
             })
           )}
-         
-
-       
-                   
-         
-        
-
-        
-                
-                
-               
-            
 
         <button 
         className='btn btn-success' onClick={this.onAdd}>

@@ -3,6 +3,8 @@ import Session from './Session';
 import Axios from 'axios';
 import Constants from './Constants';
 import { Redirect, Link } from 'react-router-dom';
+import CourseSidebar from './CourseSidebar';
+import { green100 } from 'material-ui/styles/colors';
 
 class CategoryList extends Component {
   session = Session.getInstance();
@@ -29,7 +31,9 @@ class CategoryList extends Component {
   onClickCat = catid => {
     console.log('clicked', catid);
     this.setState({ catclicked: catid });
-    window.setTimeout(()=>{this.fetchCategories();},500);
+    window.setTimeout(() => {
+      this.fetchCategories();
+    }, 500);
   };
 
   onAddCategory = () => {
@@ -44,6 +48,16 @@ class CategoryList extends Component {
     });
   };
 
+  onDeleteCategory = catid => {
+    if (window.confirm('Are you really sure to delete this category?')) {
+      Axios.get(
+        Constants.BASE_URL + 'category/deletecategory?id=' + catid
+      ).then(() => {
+        this.fetchCategories();
+      });
+    }
+  };
+
   fetchCategories() {
     let id = this.props.match.params.id || null;
     console.log('id', id);
@@ -52,29 +66,42 @@ class CategoryList extends Component {
       url = 'category/getallcategories';
     }
 
-    Axios.get(Constants.BASE_URL + url).then(res => {
-      let data = res.data || [];
-      this.session.categories = data;
-      console.log('res.data', '[' + data + ']');
-      this.setState({ categories: data });
-      this.currentid = id;
-    });
+    // Axios.get(Constants.BASE_URL + url).then(res => {
+    //   let data = res.data || [];
+    //   this.session.categories = data;
+    //   console.log('res.data', '[' + data + ']');
+    //   this.setState({ categories: data });
+    //   this.currentid = id;
+    // });
 
-    if (id) {
-      Axios.get(
-        Constants.BASE_URL +
-          'coursecontent/getallcoursecontent?categoryid=' +
-          id
-      ).then(res => {
-        console.log('gacc result', res.data);
-        let data = res.data || [];
-        this.setState({ courses: data ,
-      
-       });
-      });
+    // if (id) {
+    //   Axios.get(
+    //     Constants.BASE_URL +
+    //       'coursecontent/getallcoursecontent?categoryid=' +
+    //       id
+    //   ).then(res => {
+    //     console.log('gacc result', res.data);
+    //     let data = res.data || [];
+    //     this.setState({ courses: data ,
+
+    //    });
+    //   });
     // } else {
     //   this.setState({ courses: [] });
-    }
+
+    var promise1 = Axios.get(Constants.BASE_URL + url);
+    var promise2 = Axios.get(
+      Constants.BASE_URL + 'coursecontent/getallcoursecontent?categoryid=' + id
+    );
+    Promise.all([promise1, promise2]).then(values => {
+      console.log('values',values);
+      let categories = values[0].data || [];
+      let courses = values[1].data || [];
+
+      console.log('courses',courses)
+
+      this.setState({ categories: categories, courses: courses });
+    });
   }
 
   // shouldComponentUpdate()
@@ -85,31 +112,33 @@ class CategoryList extends Component {
   // }
 
   // componentWillReceiveProps(nextProps, nextState)
-  componentDidMount()
-  // componentDidUpdate()
+  componentDidMount() // componentDidUpdate()
   {
     console.log('cdm');
-   this.fetchCategories();
+    this.fetchCategories();
   }
 
   render() {
     console.log(this.props);
     if (this.state.catclicked) {
-      let cc=this.state.catclicked;
-      this.setState({catclicked:null});
+      let cc = this.state.catclicked;
+      this.setState({ catclicked: null });
       return <Redirect to={'/CategoryList/' + cc} />;
     }
     console.log('render', this.props.match.params.id, this.currentid);
 
-
     return (
       <>
-        <h1> Course Categories</h1>
-        <div className=' container' style={{ marginLeft: '200px' }}>
+      <CourseSidebar/>
+        <h1 style={{ marginLeft:'650px' }}> Course Categories</h1>
+        
+        <div className=' container' style={{ marginLeft: '250px' }}>
           <div className='row'>
-            {this.state.categories.map(c => {
+          
+            {this.state.categories.map((c,i) => {
               return (
-                <div className='col-4'>
+                
+                <div className='col-4' key={i}>
                   <div className='course-card'>
                     {/* <i style={{marginLeft:'180px'}} className="fa fa-edit"></i> */}
 
@@ -127,13 +156,25 @@ class CategoryList extends Component {
                       >
                         View Category
                       </Link> */}
-                      <button className="btn btn-success" onClick={this.onClickCat.bind(this,c._id)}> View </button>
+                      <button
+                        className='btn btn-success'
+                        onClick={this.onClickCat.bind(this, c._id)}
+                      >
+                        {' '}
+                        View{' '}
+                      </button>
                       <Link
                         to={'/course/' + c._id + '/' + c.name}
                         className='btn btn-success'
                       >
                         Add Sub Course
                       </Link>
+                      <button
+                        className='btn btn-danger'
+                        onClick={this.onDeleteCategory.bind(this, c._id)}
+                      >
+                        <i className='fas fa-trash' />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -141,23 +182,23 @@ class CategoryList extends Component {
             })}
           </div>
         </div>
-
-        <h1>Courses</h1>
-        {this.state.courses.map(c => {
+        <h1 style={{ marginLeft:'250px' }}>Courses</h1>
+        {this.state.courses.map((c,i) => {
           return (
-            <>
-              <div className='course-card'>
-                <Link to ={'/CourseDetails/' + c._id + '/' + c.CourseName}> 
+            <React.Fragment key={i}>
+              <div  style={{ marginLeft:'250px' }} className='course-card' >
+                <Link to={'/CourseDetails/' + c._id + '/' + c.CourseName}>
                   {c.CourseName}
                 </Link>
               </div>
-            </>
+            </React.Fragment>
           );
         })}
 
-        <div>
-          <h2>Add New Subcategory</h2>
-          <table>
+        <div  className='form-container' style={{ width: '60%' ,marginLeft:'250px' }}>
+          <h2 style={{ marginLeft:'250px' }}>Add New Category</h2>
+          <table className="table container">
+          <tbody>
             <tr>
               <td>
                 <span>Name of Category</span>
@@ -182,8 +223,14 @@ class CategoryList extends Component {
                 <input type='text' onChange={this.onChangeURL} />
               </td>
             </tr>
-          </table>
-          <button onClick={this.onAddCategory}>Add</button>
+            </tbody>
+            </table>
+          
+          <button className='btn btn-success' onClick={this.onAddCategory}>Add</button>
+          
+          
+          
+          
         </div>
       </>
     );

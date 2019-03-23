@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import Constants from './Constants';
 import Session from './Session';
+import { Redirect, Link } from 'react-router-dom';
 
 class VideoList extends Component {
   state = {
@@ -14,8 +15,18 @@ class VideoList extends Component {
 
   session = Session.getInstance();
 
+  onVideoClick=(v)=>{
+    this.session.currentvideo=v;
+    console.log('props',this.props);
+    this.setState({gotoplayer:true});
+  };
 
   render() {
+    if(this.state.gotoplayer)
+    {
+      this.state.gotoplayer=false;
+      return <Redirect to={'/VideoPlayer'} />;
+    }
     if (this.tags !== this.props.tags) {
       console.log('this', this.props.tags);
       Axios.get(
@@ -32,25 +43,27 @@ class VideoList extends Component {
     });
     return (
       <React.Fragment>
+        Tags : {this.tags} PropsTags: {this.props.tags}<br/>
         {/* Video List */}
-        {this.state.videos.map(v => {
+        {this.state.videos.map((v,i) => {
           return (
-            <>
-              <div className='video-card'>
+            <React.Fragment key={i}>
+            
+              <div style={{marginLeft:'250px'}} className='video-card' onClick={this.onVideoClick.bind(this,v)}>
                 <h1>{v.VName}</h1>
-                <iframe
-                
+                {/* <iframe
+                  
                   title={v.VName}
                   width='560'
                   height='315'
                   src={'https://www.youtube.com/embed/' + v.url}
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen
-                />
+                  allowFullScreen={true}
+                /> */}
                 <p>{v.VDescription}</p>
               </div>
-            </>
+            </React.Fragment>
           );
         })}
       </React.Fragment>
