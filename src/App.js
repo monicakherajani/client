@@ -42,6 +42,7 @@ import Capgemini from './Capgemini';
 import Reliance from './Reliance';
 import Iasys from './Iasys';
 import Cometitive from './Competitve';
+import Result from './Result';
 
 import CourseSidebar from './CourseSidebar';
 
@@ -142,6 +143,7 @@ class App extends Component {
             <Route path='/LTI' render={props => <LTI {...props} />} />
             <Route path='/Wipro' render={props => <Wipro {...props} />} />
             <Route path='/TTL' render={props => <TTL {...props} />} />
+            <Route path='/Result' render={props => <Result {...props} />} />
             <Route
               path='/TutSidebar'
               render={props => <TutSidebar {...props} />}

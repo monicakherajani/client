@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Redirect, HashRouter } from 'react-router-dom';
 import Test from './Test';
 import Axios from 'axios';
 import Constants from './Constants';
@@ -6,18 +7,30 @@ import TutSidemenu from './TutSidemenu';
 import Session from './Session';
 class TestList extends Component {
   state = {
-    tests: []
+    tests: [],
+    redirecttoquestions: false
   };
   init = false;
   tags = null;
 
   session = Session.getInstance();
 
+  // this.tags = this.props.tags;
+
+  onTestClick = test => {
+    this.session.test = test;
+    this.setState({ redirecttoquestions: true });
+  };
+
   render() {
+    if (this.state.redirecttoquestions) {
+      return <Redirect push="true" to='/QuestionList'>Goto Question List</Redirect>;
+    }
+
     if (this.tags !== this.props.tags) {
-      console.log('this', this.props.tags);
+      console.log('TestList', this, this.props['tags']);
       Axios.get(
-        Constants.BASE_URL + `test/gettestlist?tags=${this.props.tags}`
+        Constants.BASE_URL + `test/gettestbytags?tags=${this.props.tags}`
       ).then(res => {
         this.setState({ tests: res.data });
       });
@@ -32,10 +45,9 @@ class TestList extends Component {
       <React.Fragment>
         <h1>Tests</h1>
         {/* Test List */}
-        {this.state.tests.map(t => {
+        {this.state.tests.map((t, i) => {
           return (
-            <React.Fragment>
-              
+            <React.Fragment key={i}>
               <div className='container'>
                 <div className='col-4'>
                   <div className='course-card'>
@@ -48,9 +60,12 @@ class TestList extends Component {
                         <br />
                         {t.Duration}
                       </p>
-                      <a href='' className='btn btn-success'>
+                      <button
+                        className='btn btn-success'
+                        onClick={this.onTestClick.bind(this, t)}
+                      >
                         Give Test
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

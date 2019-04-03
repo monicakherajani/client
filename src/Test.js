@@ -72,7 +72,7 @@ class Test extends Component {
     if(this.state.redirect)
     {
 
-            return <Redirect to='/Questions/'/>;
+            return <Redirect push="true" to='/Questions/'/>;
     }
     return (
       <React.Fragment>

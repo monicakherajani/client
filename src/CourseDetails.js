@@ -8,7 +8,8 @@ import CourseSidebar from './CourseSidebar';
 
 class CourseDetails extends Component {
   state = {
-    course:{}
+    course:{},
+    currentBlock:'videos'
   };
   session = Session.getInstance();
 
@@ -48,6 +49,10 @@ class CourseDetails extends Component {
     return '';
   }
 
+  onCurrentBlock=(blockname)=>{
+    this.setState({currentBlock:blockname});
+  }
+
   render() {
 
     if(this.state.course===null)
@@ -62,12 +67,16 @@ class CourseDetails extends Component {
     <h1>Course : {this.props.match.params.name}</h1>
     {/* <iframe src={this.state.course.url} title='info'></iframe> */}
     <div></div>
+    <button onClick={this.onCurrentBlock.bind(this,'videos')}>Videos</button>
+    <button onClick={this.onCurrentBlock.bind(this,'tests')}>Tests</button>
         CourseDetailsTags : {this.getTags()}
         <CourseSidebar/>
-        <VideoList tags={this.getTags()}></VideoList>
+
+
+        {(this.state.currentBlock==='videos')?<VideoList tags={this.getTags()}></VideoList>:""}
        
         
-        <TestList tags={this.getTags()}></TestList>
+        {(this.state.currentBlock==='tests')?<TestList tags={this.getTags()}></TestList>:""}
     </>);
   }
 }

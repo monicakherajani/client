@@ -25,7 +25,7 @@ class VideoList extends Component {
     if(this.state.gotoplayer)
     {
       this.state.gotoplayer=false;
-      return <Redirect to={'/VideoPlayer'} />;
+      return <Redirect push="true" to={'/VideoPlayer'} />;
     }
     if (this.tags !== this.props.tags) {
       console.log('this', this.props.tags);

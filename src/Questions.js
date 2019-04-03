@@ -336,9 +336,9 @@ class Questions extends Component {
               Submit Questions
             </button>
 
-            <a href='./Questions' className='btn btn-success'>
+            {/* <a href='./Questions' className='btn btn-success'>
               Add next Question
-            </a>
+            </a> */}
           </div>
         </table>
       </React.Fragment>

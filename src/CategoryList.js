@@ -123,7 +123,7 @@ class CategoryList extends Component {
     if (this.state.catclicked) {
       let cc = this.state.catclicked;
       this.setState({ catclicked: null });
-      return <Redirect to={'/CategoryList/' + cc} />;
+      return <Redirect to={'/CategoryList/' + cc} push="true" />;
     }
     console.log('render', this.props.match.params.id, this.currentid);
 
