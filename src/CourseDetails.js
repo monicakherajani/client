@@ -70,7 +70,7 @@ class CourseDetails extends Component {
     <button onClick={this.onCurrentBlock.bind(this,'videos')}>Videos</button>
     <button onClick={this.onCurrentBlock.bind(this,'tests')}>Tests</button>
         CourseDetailsTags : {this.getTags()}
-        <CourseSidebar/>
+        <CourseSidebar onCurrentBlock={this.onCurrentBlock} />
 
 
         {(this.state.currentBlock==='videos')?<VideoList tags={this.getTags()}></VideoList>:""}

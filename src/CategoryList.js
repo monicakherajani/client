@@ -129,7 +129,7 @@ class CategoryList extends Component {
 
     return (
       <>
-      <CourseSidebar/>
+      {/* <CourseSidebar/> */}
         <h1 style={{ marginLeft:'650px' }}> Course Categories</h1>
         
         <div className=' container' style={{ marginLeft: '250px' }}>

@@ -62,19 +62,7 @@ class Result extends Component {
                 <td>{this.state.correct}</td>
                 <td>{this.state.una}</td>
               </tr>
-              <tr>
-                <th scope='row'>2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope='row'>3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
+                         </tbody>
           </table>
         </div>
 
@@ -83,15 +71,18 @@ class Result extends Component {
         ) : (
           <>
             {this.session.TestQuestions.map(q => {
-              return <>{q.answer !== q.CorrectAns ? <>
-              Question : {q.Name}<br/>
+              return <div  style={{  background:(q.CorrectAns===q.answer)?'#ddffdd':'#ffdddd'}}>
+              <b>
+              Question : {q.Name }<br/>
               1.{q.Option1}<br/>
               2.{q.Option2}<br/>
               3.{q.Option3}<br/>
               4.{q.Option4}<br/>
               Given Answer : {q.answer}<br/>
               Correct Answer : {q.CorrectAns}<br/>
-              </> : ''}</>;
+              <br/>
+              </b>
+              </div>;
             })}
           </>
         )}

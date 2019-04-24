@@ -29,6 +29,10 @@ class Questions extends Component {
   onChangeQtype = event => {
     this.setState({ QType: event.target.value });
   };
+  onChangeExplain = event => {
+    this.setState({ Explain: event.target.value });
+  };
+
   onChangeOption1 = event => {
     this.setState({ Option1: event.target.value });
   };
@@ -295,6 +299,21 @@ class Questions extends Component {
                 />
               </td>
             </tr>
+            <tr>
+              <td>
+                {' '}
+                <label>Explanation</label>
+              </td>
+              <td>
+                {' '}
+                <input
+                  type='text'
+                  onChange={this.onChangeExplain}
+                  className='form-control'
+                />
+              </td>
+            </tr>
+
             <tr>
               <td>
                 {' '}

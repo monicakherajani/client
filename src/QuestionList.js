@@ -86,13 +86,19 @@ class QuestionList extends Component {
   onTick() {
     let currenttime = new Date();
     let seconds = (currenttime - this.starttime) / 1000;
-    let total = this.session.test.Duration * 60;
+    // let total = this.session.test.Duration * 60;
+    let total = 10;
     total -= seconds;
 
     let lowtime=false;
     if(total<120)
     {
       lowtime=true;
+    }
+    if(total<=0)
+    {
+      this.session.TestQuestions = this.state.questionList;
+      this.setState({finish:true});
     }
 
     let minutes = Math.floor(total / 60);
@@ -134,16 +140,30 @@ class QuestionList extends Component {
             {this.state.questionList.length === 0 ? (
               'No Questions found'
             ) : (
-              <>
+              <><b>
                 Remaining Time :
                 {!this.state.lowtime?<>
                  {this.state.minutes}:{this.state.seconds}
                  </>:<>
-                 <span style={{backgroundColor:'red', color:'white' }}>{this.state.minutes}:{this.state.seconds}</span>
+                 <span style={{ marginLeft:'10px',backgroundColor:'red', color:'white' }}>{this.state.minutes}:{this.state.seconds}</span>
                  </>}
+                 </b>
 
                 <br />
-                <div style={{ marginLeft: '10px' }} className='Questions'>
+                  <div style={{display: 'inline-block', width: '10%'}}>
+                  {this.state.questionList.map((q,i)=>{
+                    return (<React.Fragment key={i}>
+                     <div style={{maxHeight: '100px', overflow:'hidden', border:'1px solid black', background:(this.state.counter===i)?'yellow':'white'}}
+                      onClick={()=>{this.setState({counter:i, currentQuestion: this.state.questionList[i]})}}
+                     >
+                     {i+1}. {q.Name}
+                     </div>
+                    </React.Fragment>);
+                  })}
+                  </div>
+
+                <div style={{  paddingTop:'50px', paddingBottom:'100px',paddingLeft:'10px',paddingRight:'10px',
+                borderStyle:'solid',marginLeft: '10px', display: 'inline-block' }} className='Questions'>
                   <p>
                     <span style={{}}>{this.state.currentQuestion.Name}</span>
                   </p>
