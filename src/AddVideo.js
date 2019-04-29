@@ -71,7 +71,14 @@ class AddVideo extends Component {
     return (
       <React.Fragment>
         <TutSidemenu />
-        <TutSidebar/>
+        <table style={{width: '100%'}}>
+          <tr>
+            <td valign="top" width="20%">
+              <TutSidebar />
+            </td>
+            <td valign="top" width="80%">
+              {' '}  
+
         <table className="table container">
         
         <h1>Add Video</h1>
@@ -140,6 +147,9 @@ class AddVideo extends Component {
         </button>
         </div>
         </table>
+        </td>
+          </tr>
+        </table>{' '}
                 
                 <br />
                 

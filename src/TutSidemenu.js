@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect, Link } from 'react-router-dom';
+
 class TutSidemenu extends Component {
   render() {
     console.log('sidemenu render');
@@ -9,10 +11,10 @@ class TutSidemenu extends Component {
           <div id='brand'>Learning Platform</div>
           <div className='sidebar'>
             
-            <a href='./Test'>Quiz Management</a>
-            <a href='./StudentManagement'>Student Management</a>
-            <a href='./BatchManagement'>Batch Management</a>
-            <a href=''>Logout</a>
+            <Link to='./Test'>Quiz Management</Link>
+            <Link to='./StudentManagement'>Student Management</Link>
+            <Link to='./BatchManagement'>Batch Management</Link>
+            <Link to='./'>Logout</Link>
             
           </div>
         </div>

@@ -66,7 +66,7 @@ class CourseDetails extends Component {
     return (
       <>
         <h1>Course : {this.props.match.params.name}</h1>
-        {/* <iframe src={this.state.course.url} title='info'></iframe> */}
+       
         <div />
         {/* <button onClick={this.onCurrentBlock.bind(this,'videos')}>Videos</button>
     <button onClick={this.onCurrentBlock.bind(this,'tests')}>Tests</button>

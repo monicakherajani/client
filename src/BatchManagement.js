@@ -34,11 +34,18 @@ class BatchManagement extends Component {
 return (
     <React.Fragment>
         <TutSidemenu/>
-    <div id="list-example" className="list-group">
+        <table style={{width: '100%'}}>
+          <tr>
+            <td valign="top" width="20%">
+            <div id="list-example" className="list-group">
     <a className="list-group-item list-group-item-action" href="./TutLogin">Home</a>
   <a className="list-group-item list-group-item-action" href="/">Create Batch</a>
   <a className="list-group-item list-group-item-action" href="./FindStudent">List Batch</a>
 </div>
+            </td>
+            <td valign="top" width="80%">
+              {' '} 
+   
 
 <table className="table container">
 <h1>Create Batch</h1>
@@ -81,6 +88,10 @@ return (
               </tr>
               </div>
  </table> 
+ </td>
+          </tr>
+        </table>{' '}
+        
 
 
            

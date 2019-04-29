@@ -76,10 +76,14 @@ class Test extends Component {
     }
     return (
       <React.Fragment>
-        
-        <TutSidemenu />
-        <TutSidebar/>
-         
+        <TutSidemenu/>
+        <table style={{width: '100%'}}>
+          <tr>
+            <td valign="top" width="20%">
+              <TutSidebar />
+            </td>
+            <td valign="top" width="80%">
+              {' '}  
 
         <table className="table container">
         <h1>Create New Test</h1>
@@ -151,6 +155,9 @@ class Test extends Component {
           Create Test
         </button>
         </table>
+        </td>
+          </tr>
+        </table>{' '}
       </React.Fragment>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Redirect, Link } from 'react-router-dom';
 import campus_placement from './campus-placement.png';
 import Competitive from './Competitive.png';
 import TutSidemenu from './TutSidemenu';
@@ -33,9 +33,9 @@ class TutLogin extends Component {
               <p className='card-text'>
                 Upload contents for Campus Preparation.
               </p>
-              <a href='./Campus' className='btn btn-success'>
-                Upload.
-              </a>
+              <Link to='./CategoryList' className='btn btn-success'>
+                Add to Course.
+              </Link>
             </div>
           </div>
 
@@ -47,9 +47,9 @@ class TutLogin extends Component {
               Upload contents for Competitive Exams.
 
               </p>
-              <a href='./Competitve' className='btn btn-success'>
-                 Upload.
-              </a>
+              <Link to='./CategoryList' className='btn btn-success'>
+                 Add to Course.
+              </Link>
             </div>
           </div>
         </div>
