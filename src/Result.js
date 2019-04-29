@@ -57,7 +57,7 @@ class Result extends Component {
             <tbody>
               <tr>
                 <th scope='row'>1</th>
-                <td>Mark</td>
+                <td>{this.session.test.Name}</td>
                 <td>{this.state.total}</td>
                 <td>{this.state.correct}</td>
                 <td>{this.state.una}</td>

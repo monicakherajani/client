@@ -5,7 +5,7 @@ import Axios from 'axios';
 import Constants from './Constants';
 import Session from './Session';
 import { Redirect } from 'react-router-dom';
-class StudentLogin extends Component {
+class Admin_login extends Component {
   state = {
     username: '',
     password: '',
@@ -14,18 +14,6 @@ class StudentLogin extends Component {
     loginstatus: false
   };
   session = Session.getInstance();
-
-  handleSocialLogin = user => {
-    console.log(user);
-    let firstname = user._profile.firstName;
-    let lastname = user._profile.lastName;
-    let facebookid = user._profile.id;
-    let email = user._profile.email;
-  };
-
-  handleSocialLoginFailure = err => {
-    console.error(err);
-  };
 
   onChangeUsername = event => {
     this.setState({ username: event.target.value });
@@ -38,7 +26,7 @@ class StudentLogin extends Component {
   onLogin = () => {
     Axios.get(
       Constants.BASE_URL +
-        'student/login?' +
+        'admin/login?' +
         'username=' +
         this.state.username +
         '&password=' +
@@ -47,7 +35,6 @@ class StudentLogin extends Component {
       let res = response.data;
       if (res.status === 'success') {
         this.session.student = res.student;
-        this.session.usertype='student';
         this.setState({
           message: 'Login Successful',
           s: 'block',
@@ -62,18 +49,18 @@ class StudentLogin extends Component {
 
   render() {
     if (this.state.loginstatus) {
-      return <Redirect push="true" to='/Categorylist' />;
+      return <Redirect push="true" to='./Register_tutor' />;
     }
     return (
       <React.Fragment>
         <div className='container'>
           <div className='omb_login'>
             <h3 className='omb_authTitle'>
-              Login or <button className='btn btn-primary'>Sign up</button>
-            </h3>
-            <div className='row omb_row-sm-offset-3 omb_socialButtons'>
-              <div className='col-xs-4 col-sm-2'>
-                <SocialButton
+              Login 
+             </h3>
+            {/* <div className='row omb_row-sm-offset-3 omb_socialButtons'>
+              <div className='col-xs-4 col-sm-2'> */}
+                {/* <SocialButton
                   className='btn btn-lg btn-block omb_btn-facebook'
                   style={{ color: 'white' }}
                   provider='facebook'
@@ -109,7 +96,7 @@ class StudentLogin extends Component {
                   <span className='hidden-xs'>Google</span>
                 </button>
               </div>
-            </div>
+            </div> */}
 
             <div className='row omb_row-sm-offset-3 omb_loginOr'>
               <div className='col-xs-12 col-sm-6'>
@@ -258,18 +245,11 @@ class StudentLogin extends Component {
        
       </div> */}
 
-          {this.session.usertype}
-        <SocialButton
-          provider='facebook'
-          appId='396218067847855'
-          onLoginSuccess={this.handleSocialLogin}
-          onLoginFailure={this.handleSocialLoginFailure}
-        >
-          Login with Facebook
-        </SocialButton>
+    
       </React.Fragment>
+
     );
   }
 }
 
-export default StudentLogin;
+export default Admin_login;

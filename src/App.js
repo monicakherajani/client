@@ -11,7 +11,8 @@ import FirstPage from './FirstPage';
 import Register from './Register';
 import Course from './Course';
 import StudentRegister from './StudentRegister';
-// import loginScreen from './loginScreen'
+import Register_tutor from './Register_tutor';
+import Admin_login from './admin_login';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import TutorLogin from './TutorLogin';
 import TutLogin from './TutLogin';
@@ -55,6 +56,7 @@ import BatchManagement from './BatchManagement';
 import CategoryList from './CategoryList';
 import VideoPlayer from './VideoPlayer';
 import QuestionList from './QuestionList';
+import Tut_Login from './Tut_Login';
 
 class App extends Component {
   constructor(props) {
@@ -202,6 +204,10 @@ class App extends Component {
               path='/sidemenu.js'
               render={props => <sidemenu {...props} />}
             />
+            <Route path='/Tut_Login' render={props => <Tut_Login {...props} />} />
+            <Route path='/Register_tutor' render={props => <Register_tutor {...props} />} />
+            <Route path='/admin_login' render={props => <Admin_login {...props} />} />
+            
             <Route path='/Exams' render={props => <Exams {...props} />} />
             <Route
               path='/VideoPlayer'

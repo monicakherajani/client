@@ -51,7 +51,7 @@ class QuestionList extends Component {
     Axios.get(
       Constants.BASE_URL +
         `question/getquestionbytags?tags=${this.TagArray.join(',')}&n=${
-          this.session.test.No_question
+          this.session.test.No_questions
         }`
     ).then(res => {
       console.log('res', res.data);
@@ -86,8 +86,8 @@ class QuestionList extends Component {
   onTick() {
     let currenttime = new Date();
     let seconds = (currenttime - this.starttime) / 1000;
-    // let total = this.session.test.Duration * 60;
-    let total = 10;
+    let total = this.session.test.Duration * 60;
+    // let total = 10;
     total -= seconds;
 
     let lowtime=false;
@@ -152,7 +152,10 @@ class QuestionList extends Component {
                  </b>
 
                 <br />
-                  <div style={{display: 'inline-block', width: '10%'}}>
+                <table>    
+                  <tr valign='top  '> 
+                    <td width="20%">   
+                            <div style={{display: 'inline-block'}}>
                   {this.state.questionList.map((q,i)=>{
                     return (<React.Fragment key={i}>
                      <div style={{maxHeight: '100px', overflow:'hidden', border:'1px solid black', background:(this.state.counter===i)?'yellow':'white'}}
@@ -163,8 +166,9 @@ class QuestionList extends Component {
                     </React.Fragment>);
                   })}
                   </div>
-
-                <div style={{  paddingTop:'50px', paddingBottom:'100px',paddingLeft:'10px',paddingRight:'10px',
+                  </td>
+  <td width="80%">
+                <div style={{ width:'100%', paddingTop:'50px', paddingBottom:'100px',paddingLeft:'10px',paddingRight:'10px',
                 borderStyle:'solid',marginLeft: '10px', display: 'inline-block' }} className='Questions'>
                   <p>
                     <span style={{}}>{this.state.currentQuestion.Name}</span>
@@ -207,6 +211,15 @@ class QuestionList extends Component {
                <br/>   <button className="btn btn-danger" onClick={this.onClearAnswer}>Clear Answer</button>
                   {/* Chosen Answer : {this.state.currentQuestion.answer} {(''+this.state.currentQuestion.CorrectAns)===(''+this.state.currentQuestion.answer)?"TRUE":"FALSE"} */}
                   <br />
+                  
+                  {this.state.counter === 0 ? (
+                    ''
+                  ) : (
+                    <button className='btn btn-success' onClick={this.onPrev}>
+                      Previous
+                    </button>
+                  )}
+                  
                   {this.state.counter < this.state.questionList.length - 1 ? (
                     <button className='btn btn-success' onClick={this.onNext}>
                       Next
@@ -216,14 +229,14 @@ class QuestionList extends Component {
                       Finish
                     </button>
                   )}
-                  {this.state.counter === 0 ? (
-                    ''
-                  ) : (
-                    <button className='btn btn-success' onClick={this.onPrev}>
-                      Previous
-                    </button>
-                  )}
+                  
                 </div>
+                </td>
+                </tr>
+                
+
+                </table>
+
               </>
             )}
           </>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 
 
 class Sidebar1 extends Component {
@@ -7,18 +9,18 @@ class Sidebar1 extends Component {
 return (
     
     <div id="list-example" className="list-group">
-  <a className="list-group-item list-group-item-action" href="/">Home</a>
-  <a className="list-group-item list-group-item-action" href="./CategoryList">Courses</a>
+  <Link className="list-group-item list-group-item-action" to="/">Home</Link>
+  <Link className="list-group-item list-group-item-action" to="./CategoryList">Courses</Link>
   {/* <a className="list-group-item list-group-item-action" href="./VideoPlayer">Videos</a>
   <a className="list-group-item list-group-item-action" href="./">Resources</a> */}
-  <a className="list-group-item list-group-item-action" href="./Downloads">Downloads</a>
-  <a className="list-group-item list-group-item-action" href="./Register">Register</a>
-  <a className="list-group-item list-group-item-action" href="./">Contact</a>
-  <a className="list-group-item list-group-item-action" href="./">About us</a>
+  <Link className="list-group-item list-group-item-action" to="/Downloads">Downloads</Link>
+  <Link className="list-group-item list-group-item-action" to="./Register">Register</Link>
+  <Link className="list-group-item list-group-item-action" to="./">Contact</Link>
+  <Link className="list-group-item list-group-item-action" to="./">About us</Link>
 
 
 
-  <a className="list-group-item list-group-item-action" href="./Exams">Exams</a>
+  {/* <a className="list-group-item list-group-item-action" href="./Exams">Exams</a> */}
 </div>
  );
 

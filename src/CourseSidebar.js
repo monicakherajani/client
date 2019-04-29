@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
+
 class CourseSidebar extends Component {
+  state = {
+  
+    currentBlock:'videos'
+  };
+  onCurrentBlock=(blockname)=>{
+    this.setState({currentBlock:blockname});
+  }
   render() {
     console.log('this.props.onCurrentBlock'+this.props.onCurrentBlock);
     return (

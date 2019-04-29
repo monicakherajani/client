@@ -7,7 +7,6 @@ import CourseSidebar from './CourseSidebar';
 import { green100 } from 'material-ui/styles/colors';
 
 class CategoryList extends Component {
-  session = Session.getInstance();
   currentid = null;
   state = {
     categories: [],
@@ -17,6 +16,12 @@ class CategoryList extends Component {
     catclicked: null,
     isLoaded: false
   };
+
+  constructor()
+  {
+    super();
+    this.session = Session.getInstance();
+  }
 
   onNameChange = event => {
     this.setState({ name: event.target.value });
@@ -126,7 +131,7 @@ class CategoryList extends Component {
       return <Redirect to={'/CategoryList/' + cc} push="true" />;
     }
     console.log('render', this.props.match.params.id, this.currentid);
-
+    console.log('****Session',JSON.stringify(this.session));
     return (
       <>
       {/* <CourseSidebar/> */}
@@ -139,7 +144,7 @@ class CategoryList extends Component {
               return (
                 
                 <div className='col-4' key={i}>
-                  <div className='course-card'>
+                  <div style={{width:'100%'}} className='course-card'>
                     {/* <i style={{marginLeft:'180px'}} className="fa fa-edit"></i> */}
 
                     <div
@@ -163,7 +168,8 @@ class CategoryList extends Component {
                         {' '}
                         View{' '}
                       </button>
-                      <Link
+                      
+                      {this.session.usertype==='tutor'?(<><Link
                         to={'/course/' + c._id + '/' + c.name}
                         className='btn btn-success'
                       >
@@ -174,7 +180,7 @@ class CategoryList extends Component {
                         onClick={this.onDeleteCategory.bind(this, c._id)}
                       >
                         <i className='fas fa-trash' />
-                      </button>
+                      </button></>):''}
                     </div>
                   </div>
                 </div>
@@ -182,20 +188,30 @@ class CategoryList extends Component {
             })}
           </div>
         </div>
-        <h1 style={{ marginLeft:'250px' }}>Courses</h1>
+        {/* <h1 style={{ marginLeft:'250px' }}>Courses</h1> */}
         {this.state.courses.map((c,i) => {
           return (
             <React.Fragment key={i}>
-              <div  style={{ marginLeft:'250px' }} className='course-card' >
+              <b  style={{  
+  
+  paddingTop: '20px',
+  paddingRight: '20px',
+  paddingBottom: '20px',
+  paddingLeft: '20px',
+  fontSize:'30px',
+  color: 'green',
+                marginLeft:'250px' }} className='course-card' >
                 <Link to={'/CourseDetails/' + c._id + '/' + c.CourseName}>
                   {c.CourseName}
                 </Link>
-              </div>
+              </b>
             </React.Fragment>
           );
         })}
 
-        <div  className='form-container' style={{ width: '60%' ,marginLeft:'250px' }}>
+
+
+        {this.session.usertype==='tutor'?(<><div  className='form-container' style={{ width: '60%' ,marginLeft:'250px' }}>
           <h2 style={{ marginLeft:'250px' }}>Add New Category</h2>
           <table className="table container">
           <tbody>
@@ -227,11 +243,8 @@ class CategoryList extends Component {
             </table>
           
           <button className='btn btn-success' onClick={this.onAddCategory}>Add</button>
-          
-          
-          
-          
         </div>
+        </>):''} 
       </>
     );
   }

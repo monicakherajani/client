@@ -78,7 +78,7 @@ class Sidemenu extends Component {
             <a href='#contact'>Contact</a>
             <a href='#about'>About</a> */}
             <a href='./StudentLogin'>Student Login</a>
-            <a href='./StudentLogin'>Tutor Login</a>
+            <a href='./Tut_Login'>Tutor Login</a>
           </div>
           </div>
                  

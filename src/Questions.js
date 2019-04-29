@@ -164,6 +164,20 @@ class Questions extends Component {
 
     axios.post(Constants.BASE_URL + 'question/addquestion', form).then(res => {
       console.log(res);
+
+      alert("Question added");
+
+      this.setState({
+        Name: '',
+        QType: '',
+        Option1: '',
+        Option2: '',
+        Option3: '',
+        Option4: '',
+        Option1Image: '',
+        Option2Image: '',
+        Option3Image: '',
+        Option4Image: ''});
     });
   };
 
@@ -352,12 +366,12 @@ class Questions extends Component {
             )}
 
             <button className='btn btn-success' onClick={this.onSubmitQuestion}>
-              Submit Questions
+              Add Questions
             </button>
 
-            {/* <a href='./Questions' className='btn btn-success'>
-              Add next Question
-            </a> */}
+            <a href='./CategoryList' className='btn btn-success'>
+              Finish
+            </a>
           </div>
         </table>
       </React.Fragment>

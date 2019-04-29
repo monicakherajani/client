@@ -5,10 +5,12 @@ import Axios from 'axios';
 import Constants from './Constants';
 import TutSidemenu from './TutSidemenu';
 import Session from './Session';
+import CourseSidebar from './CourseSidebar';
 class TestList extends Component {
   state = {
     tests: [],
-    redirecttoquestions: false
+    redirecttoquestions: false,
+    currentBlock: 'videos'
   };
   init = false;
   tags = null;
@@ -21,10 +23,17 @@ class TestList extends Component {
     this.session.test = test;
     this.setState({ redirecttoquestions: true });
   };
+  onCurrentBlock = blockname => {
+    this.setState({ currentBlock: blockname });
+  };
 
   render() {
     if (this.state.redirecttoquestions) {
-      return <Redirect push="true" to='/QuestionList'>Goto Question List</Redirect>;
+      return (
+        <Redirect push='true' to='/QuestionList'>
+          Goto Question List
+        </Redirect>
+      );
     }
 
     if (this.tags !== this.props.tags) {
@@ -44,32 +53,34 @@ class TestList extends Component {
     return (
       <React.Fragment>
         <h1>Tests</h1>
-        {/* Test List */}
-        {this.state.tests.map((t, i) => {
-          return (
-            <React.Fragment key={i}>
-              <div className='container'>
-                <div className='col-4'>
-                  <div className='course-card'>
-                    <div className='card-body' style={{ height: '200px' }}>
-                      <h5 className='card-title'>{t.Name}</h5>
-                      <p className='card-text'>
-                        {t.Description}
-                        <br />
-                        {t.No_questions}
-                        <br />
-                        {t.Duration}
-                      </p>
-                      <button
-                        className='btn btn-success'
-                        onClick={this.onTestClick.bind(this, t)}
-                      >
-                        Give Test
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                {/* <a href="" className="testlist testlisttitle">Campus Placement Test</a> 
+        <table>
+         
+            <td>
+              {/* Test List */}
+              {this.state.tests.map((t, i) => {
+                return (
+                  <React.Fragment key={i}>
+                    <div style={{ marginLeft:'250px',display: 'inline-block' }} className='col-4'>
+                      <div style={{width:'100%'}}className='course-card'>
+                        <div className='card-body' style={{ height: '200px' }}>
+                          <h5 className='card-title'>{t.Name}</h5>
+                          <p className='card-text'>
+                            {t.Description}
+                            <br />Questions:
+                            {t.No_questions}
+                            <br />Time:
+                            {t.Duration}
+                          </p>
+                          <button
+                            className='btn btn-success'
+                            onClick={this.onTestClick.bind(this, t)}
+                          >
+                            Give Test
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* <a href="" className="testlist testlisttitle">Campus Placement Test</a> 
     <a href="./Test" className="testlist">Infosys</a>
     <a href="./Test" className="testlist">Tata Consultancy Services</a>
     <a href="./Test" className="testlist">Wipro</a>
@@ -81,10 +92,13 @@ class TestList extends Component {
     <a href="./Test" className="testlist">Indian Constitution and Indian Politics</a>
     <a href="./Test" className="testlist">Human Resource Development (HRD) and Human Rights</a>
     <a href="./Test" className="testlist">Economy and Planning, Economics of Development and Agriculture ,Science and Technology Development</a> */}
-              </div>
-            </React.Fragment>
-          );
-        })}
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </td>
+          
+        </table>
       </React.Fragment>
     );
   }
