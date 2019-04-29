@@ -40,9 +40,9 @@ class StudentCourse extends Component {
             <div className='col-4'>
               <div className='course-card'>
                 <div className='card-body'>
-                  <h5 className='card-title'>Campus Preparation</h5>
+                  <h5 className='card-title'>Information about Campus Preparation</h5>
                   <p className='card-text'>
-                    Complete preparation to crack Aptitude.Join now!
+                    Complete Information to crack Aptitude.Join now!
                   </p>
                   <a href='./Campus' className='btn btn-success'>
                 Explore now

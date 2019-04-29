@@ -67,9 +67,9 @@ class CourseDetails extends Component {
     <h1>Course : {this.props.match.params.name}</h1>
     {/* <iframe src={this.state.course.url} title='info'></iframe> */}
     <div></div>
-    <button onClick={this.onCurrentBlock.bind(this,'videos')}>Videos</button>
+    {/* <button onClick={this.onCurrentBlock.bind(this,'videos')}>Videos</button>
     <button onClick={this.onCurrentBlock.bind(this,'tests')}>Tests</button>
-        CourseDetailsTags : {this.getTags()}
+        CourseDetailsTags : {this.getTags()} */}
         <CourseSidebar onCurrentBlock={this.onCurrentBlock} />
 
 

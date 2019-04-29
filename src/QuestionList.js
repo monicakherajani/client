@@ -46,7 +46,7 @@ class QuestionList extends Component {
   };
 
   componentDidMount() {
-    // this.TagArray=this.session.testtags;
+    //  this.TagArray=this.session.testtags;
     //console.log('this', this.props.tags);
     Axios.get(
       Constants.BASE_URL +
@@ -108,6 +108,7 @@ class QuestionList extends Component {
   }
 
   onStartTest = () => {
+    console.log(this.session);
     this.starttime = new Date();
     window.setInterval(this.onTick.bind(this), 1000);
     this.setState({ started: true });
@@ -123,7 +124,7 @@ class QuestionList extends Component {
     //   return  console.log(q.url);
 
     //   });
-
+    
     return (
       <React.Fragment>
         {!this.state.started ? (
@@ -134,6 +135,7 @@ class QuestionList extends Component {
             <button onClick={this.onStartTest} className='btn btn-success'>
               Start Test
             </button>
+            
           </>
         ) : (
           <>
