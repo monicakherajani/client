@@ -157,7 +157,7 @@ class StudentLogin extends Component {
                     />
                   </div>
 
-                  <span className='help-block'>Password error</span>
+                  {/* <span className='help-block'>Password error</span> */}
 
                   <button
                     className='btn btn-lg btn-primary btn-block'
@@ -259,14 +259,14 @@ class StudentLogin extends Component {
       </div> */}
 
           {this.session.usertype}
-        <SocialButton
+        {/* <SocialButton
           provider='facebook'
           appId='396218067847855'
           onLoginSuccess={this.handleSocialLogin}
           onLoginFailure={this.handleSocialLoginFailure}
         >
           Login with Facebook
-        </SocialButton>
+        </SocialButton> */}
       </React.Fragment>
     );
   }

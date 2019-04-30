@@ -104,7 +104,7 @@ class Tut_Login extends Component {
             <div className='row omb_row-sm-offset-3 omb_loginOr'>
               <div className='col-xs-12 col-sm-6'>
                 <hr className='omb_hrOr' />
-                <span className='omb_spanOr'>or</span>
+                {/* <span className='omb_spanOr'>or</span> */}
               </div>
             </div>
 
@@ -147,7 +147,7 @@ class Tut_Login extends Component {
                     />
                   </div>
 
-                  <span className='help-block'>Password error</span>
+                  {/* <span className='help-block'>Password error</span> */}
 
                   <button
                     className='btn btn-lg btn-primary btn-block'

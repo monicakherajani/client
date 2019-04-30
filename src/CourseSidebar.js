@@ -34,15 +34,15 @@ class CourseSidebar extends Component {
         >
           Test
         </button>
-        <a
+        {/* <a
           className='list-group-item list-group-item-action'
           href='./Downloads'
         >
           Assignment
-        </a>
-        <a className='list-group-item list-group-item-action' href='./Register'>
+        </a> */}
+        {/* <a className='list-group-item list-group-item-action' href='./Register'>
           Download Study material
-        </a>
+        </a> */}
         <a className='list-group-item list-group-item-action' href='./'>
           Contact
         </a>

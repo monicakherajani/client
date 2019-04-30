@@ -15,14 +15,14 @@ class TutLogin extends Component {
         <TutSidemenu/>
         <TutSidebar/>
         <div className="dropdown">
-  <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  {/* {/* <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Add Activity/Resources
-  </button>
+  </button> */}
   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a className="dropdown-item" href="#">URL</a>
     <a className="dropdown-item" href="#">File</a>
     <a className="dropdown-item" href="#">Folder</a>
-  </div>
+  </div> 
 </div>
         <div className="card-row" style={{marginLeft:'250px'}}>
         <div className='card-container'>
