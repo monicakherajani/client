@@ -11,9 +11,9 @@ class TutSidemenu extends Component {
           <div id='brand'>Learning Platform</div>
           <div className='sidebar'>
             
-            <Link to='./Test'>Quiz Management</Link>
+            {/* <Link to='./Test'>Quiz Management</Link>
             <Link to='./StudentManagement'>Student Management</Link>
-            <Link to='./BatchManagement'>Batch Management</Link>
+            <Link to='./BatchManagement'>Batch Management</Link> */}
             <Link to='./'>Logout</Link>
             
           </div>
