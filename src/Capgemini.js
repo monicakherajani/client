@@ -2,19 +2,20 @@ import React ,{Component } from 'react';
 import Capgemini1 from './Capgemini.jpg';
 import Cap2 from './Cap2.jpg';
 import cap3 from './cap3.jpg';
+import { Link } from 'react-router-dom';
 class Capgemini extends Component {
     render()
     {
         return(
             <React.Fragment>
   <div id="list-example" className="list-group">
-  <a className="list-group-item list-group-item-action" href="/">Home </a>
-  <a className="list-group-item list-group-item-action" href="#about">About </a>
+  <Link className="list-group-item list-group-item-action" to="/">Home </Link>
+  <Link className="list-group-item list-group-item-action" to="#about">About </Link>
 
-  <a className="list-group-item list-group-item-action" href="#syllabus">Syllabus</a>
-  <a className="list-group-item list-group-item-action" href="#criteria">Eligibility criteria</a>
-  <a className="list-group-item list-group-item-action" href="./InfyLearn">What will I learn?</a>
-  <a className="list-group-item list-group-item-action" href="">Course schedule</a>
+  <Link className="list-group-item list-group-item-action" to="#syllabus">Syllabus</Link>
+  <Link className="list-group-item list-group-item-action" to="#criteria">Eligibility criteria</Link>
+  <Link className="list-group-item list-group-item-action" to="./InfyLearn">What will I learn?</Link>
+  <Link className="list-group-item list-group-item-action" to="">Course schedule</Link>
   </div>
   <div style={{marginLeft: '250px'} }>
   <div className='row'>

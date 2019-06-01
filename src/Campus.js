@@ -16,6 +16,9 @@ import CapImg from './Capgemini.jpg';
 import Tcs2 from './Tcs2.png';
 import jio1 from './jio1.jpeg';
 
+import { Link } from 'react-router-dom';
+
+
 class Campus extends Component {
   render() {
     return (
@@ -37,9 +40,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Infosys.Join now!
                   </p>
-                  <a href='./Sidebar2' className='btn btn-success'>
+                  <Link to='./Sidebar2' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -51,9 +54,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Wipro.Join now!
                   </p>
-                  <a href='./Wipro' className='btn btn-success'>
+                  <Link to='./Wipro' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -66,9 +69,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack TCS.Join now!
                   </p>
-                  <a href='./Tcs' className='btn btn-success'>
+                  <Link to='./Tcs' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -80,9 +83,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack LTI.Join now!
                   </p>
-                  <a href='./LTI' className='btn btn-success'>
+                  <Link to='./LTI' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -94,9 +97,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Tata Technologies.Join now!
                   </p>
-                  <a href='./TTL' className='btn btn-success'>
+                  <Link to='./TTL' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -108,9 +111,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Mphasis.Join now!
                   </p>
-                  <a href='./Mphasis' className='btn btn-success'>
+                  <Link to='./Mphasis' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -122,9 +125,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Epic Research.Join now!
                   </p>
-                  <a href='./Epic' className='btn btn-success'>
+                  <Link to='./Epic' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -137,9 +140,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Syntel.Join now!
                   </p>
-                  <a href='./Syntel' className='btn btn-success'>
+                  <Link to='./Syntel' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -152,9 +155,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Persistent.Join now!
                   </p>
-                  <a href='./Persistent' className='btn btn-success'>
+                  <Link to='./Persistent' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -166,9 +169,9 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Capgemini.Join now!
                   </p>
-                  <a href='./Capgemini' className='btn btn-success'>
+                  <Link to='./Capgemini' className='btn btn-success'>
                     View Course
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -180,7 +183,7 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Reliance Jio.Join now!
                   </p>
-                  <a href="./Reliance" className='btn btn-success'>View Course</a>
+                  <Link to="./Reliance" className='btn btn-success'>View Course</Link>
                 </div>
               </div>
             </div>
@@ -191,7 +194,7 @@ class Campus extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Demand Farm.Join now!
                   </p>
-                  <a href="./Iasys" className='btn btn-success'>View Course</a>
+                  <Link to="./Iasys" className='btn btn-success'>View Course</Link>
                 </div>
               </div>
             </div>

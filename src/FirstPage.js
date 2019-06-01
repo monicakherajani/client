@@ -11,6 +11,8 @@ import slider2 from './slider2.jpg';
 import slider3 from './slider3.png';
 import Sidemenu from './sidemenu';
 
+import { Link } from 'react-router-dom'
+
 class FirstPage extends Component {
   static contextTypes = {
     router: PropTypes.object
@@ -80,9 +82,9 @@ class FirstPage extends Component {
                   <p className='card-text'>
                     Complete preparation to crack Aptitude.Join now!
                   </p>
-                  <a href='./Campus' className='btn btn-success'>
+                  <Link to='./Campus' className='btn btn-success'>
                 Explore now
-              </a>
+              </Link>
                 </div>
               </div>
             </div>

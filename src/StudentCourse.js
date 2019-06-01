@@ -1,5 +1,7 @@
 import './studentlogin.css';
 
+import { Link } from 'react-router-dom';
+
 
 import React, { Component } from 'react';
 import Sidebar1 from './Sidebar1';
@@ -14,23 +16,23 @@ class StudentCourse extends Component {
         <div className='topmenu'>
           <div id='brand'>Learning Platform</div>
           <div className='sidebar'>
-          <a href='./StudentLogin'>Student Login</a>
-            <a href='./StudentLogin'>Tutor Login</a>
+          <Link to='./StudentLogin'>Student Login</Link>
+            <Link to='./StudentLogin'>Tutor Login</Link>
           </div>
           </div>
           <div id="list-example" className="list-group">
-  <a className="list-group-item list-group-item-action" href="/">Home</a>
-  <a className="list-group-item list-group-item-action" href="./StudentCourse">Courses</a>
-  <a className="list-group-item list-group-item-action" href="./VideoList">Videos</a>
-  <a className="list-group-item list-group-item-action" href="./">Resources</a>
-  <a className="list-group-item list-group-item-action" href="./Downloads">Downloads</a>
-  <a className="list-group-item list-group-item-action" href="./Register">Register</a>
-  <a className="list-group-item list-group-item-action" href="./">Contact</a>
-  <a className="list-group-item list-group-item-action" href="./VideoList">About us</a>
+  <Link className="list-group-item list-group-item-action" to="/">Home</Link>
+  <Link className="list-group-item list-group-item-action" to="./StudentCourse">Courses</Link>
+  <Link className="list-group-item list-group-item-action" to="./VideoList">Videos</Link>
+  <Link className="list-group-item list-group-item-action" to="./">Resources</Link>
+  <Link className="list-group-item list-group-item-action" to="./Downloads">Downloads</Link>
+  <Link className="list-group-item list-group-item-action" to="./Register">Register</Link>
+  <Link className="list-group-item list-group-item-action" to="./">Contact</Link>
+  <Link className="list-group-item list-group-item-action" to="./VideoList">About us</Link>
 
 
 
-  <a className="list-group-item list-group-item-action" href="./Exams">Exams</a>
+  <Link className="list-group-item list-group-item-action" to="./Exams">Exams</Link>
 </div>
 
 
@@ -44,9 +46,9 @@ class StudentCourse extends Component {
                   <p className='card-text'>
                     Complete Information to crack Aptitude.Join now!
                   </p>
-                  <a href='./Campus' className='btn btn-success'>
+                  <Link to='./Campus' className='btn btn-success'>
                 Explore now
-              </a>
+              </Link>
                 </div>
               </div>
             </div>
@@ -87,7 +89,7 @@ class StudentCourse extends Component {
                 className='dropdown-menu'
                 aria-labelledby='dropdownMenuButton'
               >
-                <a className='dropdown-item' href='#'>
+                <a className='dropdown-itemLink='#'>
                   Home
                 </a>
                 <a className='dropdown-item' href='#'>

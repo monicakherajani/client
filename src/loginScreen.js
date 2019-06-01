@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import Login from './Login';
-import register from './register';
+import Register from './register';
+
 class loginScreen extends Component {
   constructor(props){
     super(props);
@@ -32,18 +33,18 @@ class loginScreen extends Component {
           {this.state.loginmessage}
           <MuiThemeProvider>
             <div>
-               <RaisedButton label={this.state.buttonLabel} primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+               <RaisedButton label={this.state.buttonLabel} primary={true} style={this.style} onClick={(event) => this.handleClick(event)}/>
            </div>
           </MuiThemeProvider>
         </div>
       </div>
     );
   }
-}
-const style = {
+
+ style = {
   margin: 15,
 };
-export default loginScreen;
+
 handleClick(event) {
     // console.log("event",event);
     var loginmessage;
@@ -57,7 +58,9 @@ handleClick(event) {
                      buttonLabel:"Login",
                      isLogin:false
                    })
-    }
+                  
+                
+    } 
     else{
       var loginscreen=[];
       loginscreen.push(<Login parentContext={this}/>);
@@ -70,3 +73,5 @@ handleClick(event) {
                    })
     }
   }
+}
+export default loginScreen;
